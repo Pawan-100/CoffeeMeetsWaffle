@@ -5,32 +5,61 @@ interface HomeProps {
 const Home = ({ onNavigate }: HomeProps) => {
   return (
     <>
-      {/* Hero Section */}
+      {/* Hero Section - Women-Led Franchise */}
       <section
         id="home"
-        className="relative h-screen bg-cover bg-center"
+        className="hero relative min-h-screen bg-cover bg-center flex items-center py-5"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1554893898-52600b2d7fb4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwzfHxjb2ZmZWUlMjB3YWZmbGVzJTIwYnJlYWtmYXN0fGVufDB8fHx8MTc2MzgwNTY0MHww&ixlib=rb-4.1.0&q=85')`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://picsum.photos/1600/900?random=coffee')`,
         }}
       >
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white px-4 max-w-5xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-fade-in">
-              Dive into our world of
-              <br />
-              <span className="text-secondary">
-                freshly brewed coffee
-              </span> and <span className="text-secondary">waffles</span>
-              <br />
-              crafted to perfection
-            </h1>
-            <button
-              onClick={() => onNavigate("about")}
-              data-testid="explore-btn"
-              className="bg-primary hover:bg-orange-600 text-white font-semibold px-10 py-4 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
-            >
-              Explore Our Story
-            </button>
+        {/* Container with max-width */}
+        <div className="container mx-auto px-4 max-w-7xl">
+          {/* Row equivalent using flex */}
+          <div className="flex flex-wrap items-center justify-center">
+            {/* Column equivalent - centered content */}
+            <div className="w-full lg:w-10/12 xl:w-9/12 text-center text-white">
+              {/* Main Headline */}
+              <h1
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight"
+                data-testid="hero-headline"
+              >
+                A Women-Led Café Franchise
+                <br />
+                <span className="text-amber-300">Redefining Success</span>
+              </h1>
+
+              {/* Subheadline */}
+              <p
+                className="text-lg sm:text-xl md:text-2xl mb-10 leading-relaxed max-w-4xl mx-auto font-light text-gray-100"
+                data-testid="hero-subheadline"
+              >
+                Coffee Meets Waffle empowers women entrepreneurs through a
+                modern, fast-growing franchise model built on quality, trust,
+                and opportunity.
+              </p>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                {/* Primary CTA Button */}
+                <button
+                  onClick={() => onNavigate("about")}
+                  data-testid="franchise-partner-btn"
+                  className="bg-orange-600 hover:bg-orange-700 text-white font-semibold px-8 py-4 rounded-lg text-base md:text-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl w-full sm:w-auto"
+                >
+                  Become a Franchise Partner
+                </button>
+
+                {/* Secondary CTA Button - Outline */}
+                <button
+                  onClick={() => onNavigate("about")}
+                  data-testid="explore-story-btn"
+                  className="bg-transparent border-2 border-white hover:bg-white hover:text-orange-600 text-white font-semibold px-8 py-4 rounded-lg text-base md:text-lg transition-all duration-300 transform hover:scale-105 w-full sm:w-auto"
+                >
+                  Explore Our Story
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
