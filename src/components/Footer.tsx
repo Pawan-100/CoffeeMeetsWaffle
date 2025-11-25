@@ -164,7 +164,9 @@ const Footer = () => {
                 </svg>
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/coffee_meets_waffle"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-primary hover:bg-orange-600 rounded-full flex items-center justify-center transition-colors"
                 data-testid="social-instagram"
                 aria-label="Instagram"
