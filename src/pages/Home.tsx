@@ -132,6 +132,45 @@ const Home = ({ onNavigate }: HomeProps) => {
         </div>
       </section>
 
+      {/* Brand Introduction Section */}
+      <section className="py-20 px-4 bg-gradient-to-b from-gray-900 via-gray-800 to-orange-950">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center">
+            {/* Decorative element */}
+            <div className="flex items-center justify-center mb-8">
+              <div className="h-px w-16 bg-gradient-to-r from-transparent to-amber-400"></div>
+              <div className="mx-4 text-amber-400 text-2xl">☕</div>
+              <div className="h-px w-16 bg-gradient-to-l from-transparent to-amber-400"></div>
+            </div>
+
+            {/* Headline */}
+            <h2
+              className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8 leading-tight"
+              data-testid="brand-intro-headline"
+            >
+              A Brand Built on Taste, Trust & Quality
+            </h2>
+
+            {/* Text Content */}
+            <p
+              className="text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed max-w-4xl mx-auto"
+              data-testid="brand-intro-text"
+            >
+              Coffee Meets Waffle brings together the warmth of handcrafted
+              coffee and the joy of freshly made waffles. With a strong presence
+              across India, our brand continues to grow through a franchise
+              model that welcomes and supports ambitious entrepreneurs —
+              especially women who want to build something of their own.
+            </p>
+
+            {/* Decorative bottom element */}
+            <div className="flex items-center justify-center mt-8">
+              <div className="h-px w-24 bg-gradient-to-r from-transparent via-amber-400/50 to-transparent"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Our Story Section */}
       <section
         id="about"

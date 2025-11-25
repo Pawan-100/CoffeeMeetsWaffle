@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IoMdClose } from "react-icons/io";
 import { GiHamburgerMenu } from "react-icons/gi";
 import logo from "/logo.png";
@@ -11,6 +12,8 @@ interface HeaderProps {
 const Header = ({ onNavigate }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,9 +44,20 @@ const Header = ({ onNavigate }: HeaderProps) => {
     { id: "franchise", label: "Franchise" },
   ];
 
+  const handleNavClick = (sectionId: string) => {
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        onNavigate(sectionId);
+      }, 100);
+    } else {
+      onNavigate(sectionId);
+    }
+  };
+
   const handleMobileNavClick = (sectionId: string) => {
-    onNavigate(sectionId);
     setIsMobileMenuOpen(false);
+    handleNavClick(sectionId);
   };
 
   return (
@@ -59,7 +73,8 @@ const Header = ({ onNavigate }: HeaderProps) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
-            <div
+            <Link
+              to="/"
               className="flex items-center space-x-2"
               data-testid="brand-logo"
             >
@@ -68,18 +83,14 @@ const Header = ({ onNavigate }: HeaderProps) => {
                 alt="Coffee Meets Waffle Logo"
                 className="w-auto h-16 transition-all duration-300"
               />
-            </div>
+            </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex space-x-8">
+            <nav className="hidden md:flex space-x-8 items-center">
               {navItems.map((item) => (
-                <a
+                <button
                   key={item.id}
-                  href={`#${item.id}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onNavigate(item.id);
-                  }}
+                  onClick={() => handleNavClick(item.id)}
                   className={`font-medium transition-colors ${
                     isScrolled
                       ? "text-gray-700 hover:text-primary"
@@ -88,8 +99,19 @@ const Header = ({ onNavigate }: HeaderProps) => {
                   data-testid={`nav-${item.id}`}
                 >
                   {item.label}
-                </a>
+                </button>
               ))}
+              <Link
+                to="/credits"
+                className={`font-medium transition-colors ${
+                  isScrolled
+                    ? "text-gray-700 hover:text-primary"
+                    : "text-white hover:text-secondary"
+                }`}
+                data-testid="nav-credits"
+              >
+                Credits
+              </Link>
             </nav>
 
             {/* Mobile Menu Button */}
@@ -191,6 +213,41 @@ const Header = ({ onNavigate }: HeaderProps) => {
                 </div>
               </button>
             ))}
+            <Link
+              to="/credits"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`block w-full text-left font-semibold transition-all duration-200 py-4 px-6 rounded-xl min-h-[44px] transform hover:scale-[1.02] ${
+                isScrolled
+                  ? "text-gray-800 hover:text-primary hover:bg-orange-50 active:bg-orange-100"
+                  : "text-white hover:text-secondary hover:bg-white/10 active:bg-white/20"
+              }`}
+              style={{
+                animationDelay: `${navItems.length * 50}ms`,
+                animation: isMobileMenuOpen
+                  ? "slideIn 0.3s ease-out forwards"
+                  : "none",
+              }}
+              data-testid="mobile-nav-credits"
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-lg">Credits</span>
+                <svg
+                  className={`w-5 h-5 transition-transform duration-200 ${
+                    isScrolled ? "text-gray-400" : "text-gray-500"
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
