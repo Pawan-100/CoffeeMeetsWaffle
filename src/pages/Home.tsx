@@ -1,42 +1,90 @@
+import { useRef, useEffect, useState } from "react";
+import heroVideo from "../assets/Hero_Background.mp4";
+import heroImage from "../assets/Hero_Background.png";
+
 interface HomeProps {
   onNavigate: (sectionId: string) => void;
 }
 
 const Home = ({ onNavigate }: HomeProps) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      // Set video loaded state when it can play
+      const handleCanPlay = () => {
+        setIsVideoLoaded(true);
+      };
+      video.addEventListener("canplay", handleCanPlay);
+
+      return () => {
+        video.removeEventListener("canplay", handleCanPlay);
+      };
+    }
+  }, []);
+
   return (
     <>
-      {/* Hero Section - Women-Led Franchise */}
+      {/* Hero Section - Coffee Meets Waffles */}
       <section
         id="home"
-        className="hero relative min-h-screen bg-cover bg-center flex items-center py-5"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://picsum.photos/1600/900?random=coffee')`,
-        }}
+        className="hero relative min-h-screen flex items-center py-5 overflow-hidden"
       >
+        {/* Background Image (Fallback) */}
+        <div
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000"
+          style={{
+            backgroundImage: `url(${heroImage})`,
+            opacity: isVideoLoaded ? 0 : 1,
+          }}
+        />
+
+        {/* Background Video */}
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={heroImage}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+            isVideoLoaded ? "opacity-100" : "opacity-0"
+          }`}
+          data-testid="hero-background-video"
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
+
+        {/* Dark Overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
+
         {/* Container with max-width */}
-        <div className="container mx-auto px-4 max-w-7xl">
+        <div className="container mx-auto px-4 max-w-7xl relative z-10">
           {/* Row equivalent using flex */}
           <div className="flex flex-wrap items-center justify-center">
             {/* Column equivalent - centered content */}
             <div className="w-full lg:w-10/12 xl:w-9/12 text-center text-white">
               {/* Main Headline */}
               <h1
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight drop-shadow-2xl"
                 data-testid="hero-headline"
               >
-                A Women-Led Café Franchise
+                Where Great Coffee Meets
                 <br />
-                <span className="text-amber-300">Redefining Success</span>
+                <span className="text-amber-400 drop-shadow-lg">
+                  Signature Waffles
+                </span>
               </h1>
 
               {/* Subheadline */}
               <p
-                className="text-lg sm:text-xl md:text-2xl mb-10 leading-relaxed max-w-4xl mx-auto font-light text-gray-100"
+                className="text-lg sm:text-xl md:text-2xl mb-10 leading-relaxed max-w-4xl mx-auto font-light text-gray-100 drop-shadow-lg"
                 data-testid="hero-subheadline"
               >
-                Coffee Meets Waffle empowers women entrepreneurs through a
-                modern, fast-growing franchise model built on quality, trust,
-                and opportunity.
+                Driven by passion, powered by quality, and proudly supporting
+                women who dream big.
               </p>
 
               {/* CTA Buttons */}
@@ -64,8 +112,8 @@ const Home = ({ onNavigate }: HomeProps) => {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="flex flex-col items-center text-white">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
+          <div className="flex flex-col items-center text-white drop-shadow-lg">
             <span className="text-sm mb-2">Scroll Down</span>
             <svg
               className="w-6 h-6"
