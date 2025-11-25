@@ -1,6 +1,9 @@
 import { useRef, useEffect, useState } from "react";
 import heroVideo from "../assets/Hero_Background.mp4";
 import heroImage from "../assets/Hero_Background.png";
+import illustration1 from "../assets/illustrations/illustration_1.png";
+import illustration2 from "../assets/illustrations/illustration_2.png";
+import illustration3 from "../assets/illustrations/illustration_3.png";
 
 interface HomeProps {
   onNavigate: (sectionId: string) => void;
@@ -68,7 +71,7 @@ const Home = ({ onNavigate }: HomeProps) => {
             <div className="w-full lg:w-10/12 xl:w-9/12 text-center text-white">
               {/* Main Headline */}
               <h1
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight drop-shadow-2xl"
+                className="text-4xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight drop-shadow-2xl"
                 data-testid="hero-headline"
               >
                 Where Great Coffee Meets
@@ -80,7 +83,7 @@ const Home = ({ onNavigate }: HomeProps) => {
 
               {/* Subheadline */}
               <p
-                className="text-lg sm:text-xl md:text-2xl mb-10 leading-relaxed max-w-4xl mx-auto font-light text-gray-100 drop-shadow-lg"
+                className="text-lg lg:text-2xl mb-10 leading-relaxed max-w-4xl mx-auto font-light text-gray-100 drop-shadow-lg"
                 data-testid="hero-subheadline"
               >
                 Driven by passion, powered by quality, and proudly supporting
@@ -88,12 +91,12 @@ const Home = ({ onNavigate }: HomeProps) => {
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <div className="flex flex-col lg:flex-row gap-4 justify-center items-center">
                 {/* Primary CTA Button */}
                 <button
                   onClick={() => onNavigate("about")}
                   data-testid="franchise-partner-btn"
-                  className="bg-orange-600 hover:bg-orange-700 text-white font-semibold px-8 py-4 rounded-lg text-base md:text-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl w-full sm:w-auto"
+                  className="bg-orange-600 hover:bg-orange-700 text-white font-semibold px-8 py-4 rounded-lg text-base lg:text-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl w-full lg:w-auto"
                 >
                   Become a Franchise Partner
                 </button>
@@ -102,7 +105,7 @@ const Home = ({ onNavigate }: HomeProps) => {
                 <button
                   onClick={() => onNavigate("about")}
                   data-testid="explore-story-btn"
-                  className="bg-transparent border-2 border-white hover:bg-white hover:text-orange-600 text-white font-semibold px-8 py-4 rounded-lg text-base md:text-lg transition-all duration-300 transform hover:scale-105 w-full sm:w-auto"
+                  className="bg-transparent border-2 border-white hover:bg-white hover:text-orange-600 text-white font-semibold px-8 py-4 rounded-lg text-base lg:text-lg transition-all duration-300 transform hover:scale-105 w-full lg:w-auto"
                 >
                   Explore Our Story
                 </button>
@@ -133,19 +136,41 @@ const Home = ({ onNavigate }: HomeProps) => {
       </section>
 
       {/* Brand Introduction Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-gray-900 via-gray-800 to-orange-950">
-        <div className="max-w-5xl mx-auto">
+      <section className="relative py-32 lg:py-40 px-4 bg-gradient-to-b from-white via-orange-50 to-orange-100 overflow-hidden">
+        {/* Background Illustrations */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {/* Left illustration - hidden on mobile */}
+          <img
+            src={illustration1}
+            alt=""
+            className="hidden lg:block absolute left-0 top-1/4 w-32 lg:w-40 opacity-20 transform -translate-x-8"
+          />
+          {/* Right illustration - hidden on mobile */}
+          <img
+            src={illustration2}
+            alt=""
+            className="hidden lg:block absolute right-0 bottom-1/4 w-32 lg:w-40 opacity-20 transform translate-x-8"
+          />
+          {/* Center top illustration - visible on all screens */}
+          <img
+            src={illustration3}
+            alt=""
+            className="absolute right-4 lg:right-12 top-8 w-20 lg:w-28 opacity-15"
+          />
+        </div>
+
+        <div className="max-w-5xl mx-auto relative z-10">
           <div className="text-center">
             {/* Decorative element */}
             <div className="flex items-center justify-center mb-8">
-              <div className="h-px w-16 bg-gradient-to-r from-transparent to-amber-400"></div>
-              <div className="mx-4 text-amber-400 text-2xl">☕</div>
-              <div className="h-px w-16 bg-gradient-to-l from-transparent to-amber-400"></div>
+              <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary"></div>
+              <div className="mx-4 text-primary text-2xl">☕</div>
+              <div className="h-px w-16 bg-gradient-to-l from-transparent to-primary"></div>
             </div>
 
             {/* Headline */}
             <h2
-              className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8 leading-tight"
+              className="text-3xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight px-4"
               data-testid="brand-intro-headline"
             >
               A Brand Built on Taste, Trust & Quality
@@ -153,7 +178,7 @@ const Home = ({ onNavigate }: HomeProps) => {
 
             {/* Text Content */}
             <p
-              className="text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed max-w-4xl mx-auto"
+              className="text-base lg:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto px-4"
               data-testid="brand-intro-text"
             >
               Coffee Meets Waffle brings together the warmth of handcrafted
@@ -165,7 +190,7 @@ const Home = ({ onNavigate }: HomeProps) => {
 
             {/* Decorative bottom element */}
             <div className="flex items-center justify-center mt-8">
-              <div className="h-px w-24 bg-gradient-to-r from-transparent via-amber-400/50 to-transparent"></div>
+              <div className="h-px w-24 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
             </div>
           </div>
         </div>
@@ -221,7 +246,7 @@ const Home = ({ onNavigate }: HomeProps) => {
       {/* Stats Bar */}
       <section className="bg-gradient-to-r from-primary via-orange-500 to-primary py-16 shadow-xl">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center text-white">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 text-center text-white">
             <div
               data-testid="stat-waffles"
               className="transform hover:scale-105 transition-transform"
@@ -265,7 +290,7 @@ const Home = ({ onNavigate }: HomeProps) => {
       {/* Meet Our Founders */}
       <section className="py-24 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative group">
               <img
                 src="https://images.unsplash.com/photo-1563481911853-c14860cd6947?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMGZvdW5kZXJzJTIwdGVhbXxlbnwwfHx8fDE3NjM4MDU2NDZ8MA&ixlib=rb-4.1.0&q=85"
@@ -306,7 +331,7 @@ const Home = ({ onNavigate }: HomeProps) => {
       {/* Mission and Values */}
       <section className="py-24 px-4 bg-gradient-to-b from-orange-50 to-white">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-5xl font-bold text-gray-900 mb-8">
                 Mission & Values
@@ -382,7 +407,7 @@ const Home = ({ onNavigate }: HomeProps) => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div
               className="relative rounded-2xl overflow-hidden shadow-xl h-96 group"
               data-testid="community-image-1"
@@ -476,7 +501,7 @@ const Home = ({ onNavigate }: HomeProps) => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div
               className="text-center p-8 bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow"
               data-testid="award-category-1"

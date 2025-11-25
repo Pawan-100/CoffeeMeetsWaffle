@@ -11,7 +11,7 @@ function App() {
   };
 
   return (
-    <Router>
+    <Router basename="/CoffeeMeetsWaffle">
       <div className="min-h-screen bg-white">
         <Header onNavigate={scrollToSection} />
         <Routes>

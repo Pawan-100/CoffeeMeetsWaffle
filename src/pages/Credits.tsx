@@ -6,7 +6,7 @@ function Credits() {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Credits
           </h1>
           <p className="text-lg text-gray-600">
@@ -15,7 +15,7 @@ function Credits() {
         </div>
 
         {/* Credits List */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 sm:p-12">
+        <div className="bg-white rounded-2xl shadow-xl p-8 lg:p-12">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Image Resources
           </h2>
@@ -40,7 +40,7 @@ function Credits() {
               <span className="text-primary text-2xl flex-shrink-0">•</span>
               <div>
                 <a
-                  href="https://www.freepik.com/free-vector/hand-drawn-latte-art-drink_14723637.htm#fromView=search&page=1&position=17&uuid=b91c4b4c-aebb-4350-a13d-6693caf8ac1e&query=coffee"
+                  href="https://www.freepik.com/free-vector/hand-drawn-latte-art-drink_14723637.htm#fromView=search&page=1&position=17&uuid=section-spacing-fix&query=coffee"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary hover:text-orange-700 underline font-medium transition-colors"

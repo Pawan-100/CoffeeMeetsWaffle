@@ -15,6 +15,9 @@ const Header = ({ onNavigate }: HeaderProps) => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Check if we're on a page other than home
+  const isNotHomePage = location.pathname !== "/";
+
   useEffect(() => {
     const handleScroll = () => {
       // Switch header style after 200px scroll
@@ -64,8 +67,8 @@ const Header = ({ onNavigate }: HeaderProps) => {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-white/70 backdrop-blur-md shadow-md"
+          isScrolled || isNotHomePage
+            ? "bg-white/95 backdrop-blur-md shadow-md"
             : "bg-transparent backdrop-blur-xs"
         }`}
         data-testid="main-navigation"
@@ -79,20 +82,20 @@ const Header = ({ onNavigate }: HeaderProps) => {
               data-testid="brand-logo"
             >
               <img
-                src={isScrolled ? blackLogo : logo}
+                src={isScrolled || isNotHomePage ? blackLogo : logo}
                 alt="Coffee Meets Waffle Logo"
                 className="w-auto h-16 transition-all duration-300"
               />
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex space-x-8 items-center">
+            <nav className="hidden lg:flex space-x-8 items-center">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
                   className={`font-medium transition-colors ${
-                    isScrolled
+                    isScrolled || isNotHomePage
                       ? "text-gray-700 hover:text-primary"
                       : "text-white hover:text-secondary"
                   }`}
@@ -104,7 +107,7 @@ const Header = ({ onNavigate }: HeaderProps) => {
               <Link
                 to="/credits"
                 className={`font-medium transition-colors ${
-                  isScrolled
+                  isScrolled || isNotHomePage
                     ? "text-gray-700 hover:text-primary"
                     : "text-white hover:text-secondary"
                 }`}
@@ -117,8 +120,8 @@ const Header = ({ onNavigate }: HeaderProps) => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`md:hidden transition-all duration-300 p-2 min-h-[44px] min-w-[44px] relative z-60 ${
-                isScrolled
+              className={`lg:hidden transition-all duration-300 p-2 min-h-[44px] min-w-[44px] relative z-60 ${
+                isScrolled || isNotHomePage
                   ? "text-gray-700 hover:text-primary"
                   : "text-white hover:text-secondary"
               }`}
@@ -150,7 +153,7 @@ const Header = ({ onNavigate }: HeaderProps) => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden transition-opacity duration-300 ${
+        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden transition-opacity duration-300 ${
           isMobileMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -161,7 +164,7 @@ const Header = ({ onNavigate }: HeaderProps) => {
 
       {/* Mobile Menu Dropdown */}
       <div
-        className={`fixed top-[88px] left-0 right-0 z-40 md:hidden transition-all duration-300 ease-out transform ${
+        className={`fixed top-[88px] left-0 right-0 z-40 lg:hidden transition-all duration-300 ease-out transform ${
           isMobileMenuOpen
             ? "translate-y-0 opacity-100"
             : "-translate-y-4 opacity-0 pointer-events-none"
@@ -170,7 +173,7 @@ const Header = ({ onNavigate }: HeaderProps) => {
       >
         <div
           className={`mx-4 rounded-2xl shadow-2xl overflow-hidden ${
-            isScrolled
+            isScrolled || isNotHomePage
               ? "bg-white/95 backdrop-blur-xl border border-gray-200"
               : "bg-gray-900/95 backdrop-blur-xl border border-gray-700"
           }`}
@@ -181,7 +184,7 @@ const Header = ({ onNavigate }: HeaderProps) => {
                 key={item.id}
                 onClick={() => handleMobileNavClick(item.id)}
                 className={`block w-full text-left font-semibold transition-all duration-200 py-4 px-6 rounded-xl min-h-[44px] transform hover:scale-[1.02] ${
-                  isScrolled
+                  isScrolled || isNotHomePage
                     ? "text-gray-800 hover:text-primary hover:bg-orange-50 active:bg-orange-100"
                     : "text-white hover:text-secondary hover:bg-white/10 active:bg-white/20"
                 }`}
@@ -197,7 +200,9 @@ const Header = ({ onNavigate }: HeaderProps) => {
                   <span className="text-lg">{item.label}</span>
                   <svg
                     className={`w-5 h-5 transition-transform duration-200 ${
-                      isScrolled ? "text-gray-400" : "text-gray-500"
+                      isScrolled || isNotHomePage
+                        ? "text-gray-400"
+                        : "text-gray-500"
                     }`}
                     fill="none"
                     stroke="currentColor"
@@ -217,7 +222,7 @@ const Header = ({ onNavigate }: HeaderProps) => {
               to="/credits"
               onClick={() => setIsMobileMenuOpen(false)}
               className={`block w-full text-left font-semibold transition-all duration-200 py-4 px-6 rounded-xl min-h-[44px] transform hover:scale-[1.02] ${
-                isScrolled
+                isScrolled || isNotHomePage
                   ? "text-gray-800 hover:text-primary hover:bg-orange-50 active:bg-orange-100"
                   : "text-white hover:text-secondary hover:bg-white/10 active:bg-white/20"
               }`}
@@ -233,7 +238,9 @@ const Header = ({ onNavigate }: HeaderProps) => {
                 <span className="text-lg">Credits</span>
                 <svg
                   className={`w-5 h-5 transition-transform duration-200 ${
-                    isScrolled ? "text-gray-400" : "text-gray-500"
+                    isScrolled || isNotHomePage
+                      ? "text-gray-400"
+                      : "text-gray-500"
                   }`}
                   fill="none"
                   stroke="currentColor"
