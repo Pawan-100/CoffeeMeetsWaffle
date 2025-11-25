@@ -20,6 +20,7 @@ const Home = ({ onNavigate }: HomeProps) => {
       <BrandIntroSection />
       <DistinguishedGuestsSection />
       <IndiaPresenceSection />
+
       <StorySection />
       <StatsSection />
       <FoundersSection />

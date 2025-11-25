@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { BsInstagram } from "react-icons/bs";
 import reel1Video from "../../assets/reels/reel_1.mp4";
 import reel1Poster from "../../assets/reels/reel_1.jpeg";
@@ -41,11 +41,46 @@ const DistinguishedGuestsSection = () => {
   }>({});
   const videoRefs = useRef<{ [key: number]: HTMLVideoElement | null }>({});
 
+  // Autoplay videos when they're loaded
+  useEffect(() => {
+    const cleanupFunctions: (() => void)[] = [];
+
+    reelsData.forEach((reel) => {
+      const video = videoRefs.current[reel.id];
+      if (video) {
+        // Set initial muted state
+        video.muted = true;
+
+        // Autoplay when video can play
+        const handleCanPlay = () => {
+          video.play().catch((error) => {
+            console.log("Autoplay failed for reel", reel.id, error);
+          });
+          setPlayingStates((prev) => ({ ...prev, [reel.id]: true }));
+        };
+
+        video.addEventListener("canplay", handleCanPlay);
+
+        // Store cleanup function
+        cleanupFunctions.push(() => {
+          video.removeEventListener("canplay", handleCanPlay);
+        });
+      }
+    });
+
+    // Return cleanup function that calls all stored cleanup functions
+    return () => {
+      cleanupFunctions.forEach((cleanup) => cleanup());
+    };
+  }, []);
+
   const handleVideoClick = (reelId: number) => {
     const video = videoRefs.current[reelId];
     if (video) {
       if (video.paused) {
         video.play();
+        // Unmute when user manually plays
+        video.muted = false;
         setPlayingStates((prev) => ({ ...prev, [reelId]: true }));
       } else {
         video.pause();
@@ -95,6 +130,8 @@ const DistinguishedGuestsSection = () => {
                   poster={reel.poster}
                   loop
                   playsInline
+                  muted
+                  autoPlay
                   onClick={() => handleVideoClick(reel.id)}
                   data-testid={`video-reel-${reel.id}`}
                 >
