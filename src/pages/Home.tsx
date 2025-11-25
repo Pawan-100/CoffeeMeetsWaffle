@@ -1,6 +1,7 @@
 import HeroSection from "../components/Home/HeroSection";
 import BrandIntroSection from "../components/Home/BrandIntroSection";
 import DistinguishedGuestsSection from "../components/Home/DistinguishedGuestsSection";
+import IndiaPresenceSection from "../components/Home/IndiaPresenceSection";
 import StorySection from "../components/Home/StorySection";
 import StatsSection from "../components/Home/StatsSection";
 import FoundersSection from "../components/Home/FoundersSection";
@@ -18,6 +19,7 @@ const Home = ({ onNavigate }: HomeProps) => {
       <HeroSection onNavigate={onNavigate} />
       <BrandIntroSection />
       <DistinguishedGuestsSection />
+      <IndiaPresenceSection />
       <StorySection />
       <StatsSection />
       <FoundersSection />
