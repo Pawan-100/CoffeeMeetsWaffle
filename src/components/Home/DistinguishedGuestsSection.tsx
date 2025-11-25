@@ -1,6 +1,59 @@
+import { useState, useRef } from "react";
 import { BsInstagram } from "react-icons/bs";
+import reel1Video from "../../assets/reels/reel_1.mp4";
+import reel1Poster from "../../assets/reels/reel_1.jpeg";
+import reel2Video from "../../assets/reels/reel_2.mp4";
+import reel2Poster from "../../assets/reels/reel_2.jpeg";
+import reel3Video from "../../assets/reels/reel_3.mp4";
+import reel3Poster from "../../assets/reels/reel_3.jpeg";
+
+interface ReelData {
+  id: number;
+  video: string;
+  poster: string;
+  instagramLink: string;
+}
+
+const reelsData: ReelData[] = [
+  {
+    id: 1,
+    video: reel1Video,
+    poster: reel1Poster,
+    instagramLink: "https://www.instagram.com/reel/DClteCFt3kG/",
+  },
+  {
+    id: 2,
+    video: reel2Video,
+    poster: reel2Poster,
+    instagramLink: "https://www.instagram.com/reel/C5fZDp5ynsB/",
+  },
+  {
+    id: 3,
+    video: reel3Video,
+    poster: reel3Poster,
+    instagramLink: "https://www.instagram.com/reel/Cmi0Oxmrv8U/",
+  },
+];
 
 const DistinguishedGuestsSection = () => {
+  const [playingStates, setPlayingStates] = useState<{
+    [key: number]: boolean;
+  }>({});
+  const videoRefs = useRef<{ [key: number]: HTMLVideoElement | null }>({});
+
+  const handleVideoClick = (reelId: number) => {
+    const video = videoRefs.current[reelId];
+    if (video) {
+      if (video.paused) {
+        video.play();
+        setPlayingStates((prev) => ({ ...prev, [reelId]: true }));
+      } else {
+        video.pause();
+        setPlayingStates((prev) => ({ ...prev, [reelId]: false }));
+      }
+    }
+  };
+
   return (
     <section className="py-24 px-4 bg-gradient-to-b from-orange-100 to-white">
       <div className="max-w-6xl mx-auto">
@@ -25,93 +78,52 @@ const DistinguishedGuestsSection = () => {
         </div>
 
         {/* Instagram Reels Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Instagram Reel Card 1 */}
-          <div
-            className="relative bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-shadow duration-300"
-            data-testid="instagram-reel-1"
-          >
-            <div className="aspect-[9/16] bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100 flex items-center justify-center">
-              <div className="text-center p-8">
-                <BsInstagram className="w-16 h-16 mx-auto mb-4 text-primary" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          {reelsData.map((reel) => (
+            <div
+              key={reel.id}
+              className="relative bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-shadow duration-300"
+              data-testid={`instagram-reel-${reel.id}`}
+            >
+              {/* Video Container */}
+              <div className="relative aspect-[9/16] bg-black cursor-pointer">
+                <video
+                  ref={(el) => {
+                    if (el) videoRefs.current[reel.id] = el;
+                  }}
+                  className="w-full h-full object-cover"
+                  poster={reel.poster}
+                  loop
+                  playsInline
+                  onClick={() => handleVideoClick(reel.id)}
+                  data-testid={`video-reel-${reel.id}`}
+                >
+                  <source src={reel.video} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
 
-                <p className="text-gray-600 font-medium">
-                  Instagram Reel Placeholder 1
-                </p>
-                <p className="text-sm text-gray-500 mt-2">
-                  Replace with actual embed code
-                </p>
+                {/* Play/Pause Overlay Indicator (subtle) */}
+                {!playingStates[reel.id] && (
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div className="rounded-full p-4 opacity-70 group-hover:opacity-100 transition-opacity"></div>
+                  </div>
+                )}
               </div>
+
+              {/* Floating Instagram Button - Bottom Right */}
+              <a
+                href={reel.instagramLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Open in Instagram"
+                className="absolute bottom-4 right-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 z-10"
+                data-testid={`instagram-link-${reel.id}`}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <BsInstagram className="w-6 h-6" />
+              </a>
             </div>
-            {/* Uncomment and replace with actual Instagram embed
-            <iframe
-              src="https://www.instagram.com/reel/REEL_ID/embed"
-              className="w-full aspect-[9/16]"
-              frameBorder="0"
-              scrolling="no"
-              allowTransparency={true}
-              allow="encrypted-media"
-            ></iframe>
-            */}
-          </div>
-
-          {/* Instagram Reel Card 2 */}
-          <div
-            className="relative bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-shadow duration-300"
-            data-testid="instagram-reel-2"
-          >
-            <div className="aspect-[9/16] bg-gradient-to-br from-orange-100 via-yellow-100 to-pink-100 flex items-center justify-center">
-              <div className="text-center p-8">
-                <BsInstagram className="w-16 h-16 mx-auto mb-4 text-primary" />
-
-                <p className="text-gray-600 font-medium">
-                  Instagram Reel Placeholder 2
-                </p>
-                <p className="text-sm text-gray-500 mt-2">
-                  Replace with actual embed code
-                </p>
-              </div>
-            </div>
-            {/* Uncomment and replace with actual Instagram embed
-            <iframe
-              src="https://www.instagram.com/reel/REEL_ID/embed"
-              className="w-full aspect-[9/16]"
-              frameBorder="0"
-              scrolling="no"
-              allowTransparency={true}
-              allow="encrypted-media"
-            ></iframe>
-            */}
-          </div>
-
-          {/* Instagram Reel Card 3 */}
-          <div
-            className="relative bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-shadow duration-300 md:col-span-2 lg:col-span-1"
-            data-testid="instagram-reel-3"
-          >
-            <div className="aspect-[9/16] bg-gradient-to-br from-pink-100 via-purple-100 to-orange-100 flex items-center justify-center">
-              <div className="text-center p-8">
-                <BsInstagram className="w-16 h-16 mx-auto mb-4 text-primary" />
-
-                <p className="text-gray-600 font-medium">
-                  Instagram Reel Placeholder 3
-                </p>
-                <p className="text-sm text-gray-500 mt-2">
-                  Replace with actual embed code
-                </p>
-              </div>
-            </div>
-            {/* Uncomment and replace with actual Instagram embed
-            <iframe
-              src="https://www.instagram.com/reel/REEL_ID/embed"
-              className="w-full aspect-[9/16]"
-              frameBorder="0"
-              scrolling="no"
-              allowTransparency={true}
-              allow="encrypted-media"
-            ></iframe>
-            */}
-          </div>
+          ))}
         </div>
 
         {/* Call to Action */}
