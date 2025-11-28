@@ -15,12 +15,10 @@ const Header = ({ onNavigate }: HeaderProps) => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Check if we're on a page other than home
   const isNotHomePage = location.pathname !== "/";
 
   useEffect(() => {
     const handleScroll = () => {
-      // Switch header style after 200px scroll
       setIsScrolled(window.scrollY > 200);
     };
 
@@ -28,7 +26,6 @@ const Header = ({ onNavigate }: HeaderProps) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -41,26 +38,26 @@ const Header = ({ onNavigate }: HeaderProps) => {
   }, [isMobileMenuOpen]);
 
   const navItems = [
-    { id: "home", label: "Home" },
-    { id: "about", label: "About Us" },
-    { id: "menu", label: "Menu" },
-    { id: "franchise", label: "Franchise" },
+    { id: "home", label: "Home", path: "/" },
+    { id: "about", label: "About Us", path: "/about" },
+    { id: "menu", label: "Menu", path: "/menu" },
+    { id: "franchise", label: "Franchise", path: "/franchise" },
   ];
 
-  const handleNavClick = (sectionId: string) => {
-    if (location.pathname !== "/") {
-      navigate("/");
-      setTimeout(() => {
-        onNavigate(sectionId);
-      }, 100);
-    } else {
-      onNavigate(sectionId);
-    }
-  };
-
-  const handleMobileNavClick = (sectionId: string) => {
+  const handleNavClick = (sectionId: string, path: string) => {
     setIsMobileMenuOpen(false);
-    handleNavClick(sectionId);
+    if (path === "/") {
+      if (location.pathname !== "/") {
+        navigate("/");
+        setTimeout(() => {
+          onNavigate(sectionId);
+        }, 100);
+      } else {
+        onNavigate(sectionId);
+      }
+    } else {
+      navigate(path);
+    }
   };
 
   return (
@@ -75,7 +72,6 @@ const Header = ({ onNavigate }: HeaderProps) => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
-            {/* Logo */}
             <Link
               to="/"
               className="flex items-center space-x-2"
@@ -88,12 +84,11 @@ const Header = ({ onNavigate }: HeaderProps) => {
               />
             </Link>
 
-            {/* Desktop Navigation */}
             <nav className="hidden lg:flex space-x-8 items-center">
               {navItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => handleNavClick(item.id)}
+                  onClick={() => handleNavClick(item.id, item.path)}
                   className={`font-medium transition-colors ${
                     isScrolled || isNotHomePage
                       ? "text-gray-700 hover:text-primary"
@@ -117,7 +112,6 @@ const Header = ({ onNavigate }: HeaderProps) => {
               </Link>
             </nav>
 
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`lg:hidden transition-all duration-300 p-2 min-h-[44px] min-w-[44px] relative z-60 ${
@@ -151,7 +145,6 @@ const Header = ({ onNavigate }: HeaderProps) => {
         </div>
       </header>
 
-      {/* Mobile Menu Overlay */}
       <div
         className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden transition-opacity duration-300 ${
           isMobileMenuOpen
@@ -162,7 +155,6 @@ const Header = ({ onNavigate }: HeaderProps) => {
         data-testid="mobile-menu-overlay"
       />
 
-      {/* Mobile Menu Dropdown */}
       <div
         className={`fixed top-[88px] left-0 right-0 z-40 lg:hidden transition-all duration-300 ease-out transform ${
           isMobileMenuOpen
@@ -182,7 +174,7 @@ const Header = ({ onNavigate }: HeaderProps) => {
             {navItems.map((item, index) => (
               <button
                 key={item.id}
-                onClick={() => handleMobileNavClick(item.id)}
+                onClick={() => handleNavClick(item.id, item.path)}
                 className={`block w-full text-left font-semibold transition-all duration-200 py-4 px-6 rounded-xl min-h-[44px] transform hover:scale-[1.02] ${
                   isScrolled || isNotHomePage
                     ? "text-gray-800 hover:text-primary hover:bg-orange-50 active:bg-orange-100"

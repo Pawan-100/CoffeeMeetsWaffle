@@ -1,10 +1,14 @@
+import { Link } from "react-router-dom";
 import illustration1 from "../../assets/illustrations/illustration_1.png";
 import illustration2 from "../../assets/illustrations/illustration_2.png";
 import illustration3 from "../../assets/illustrations/illustration_3.png";
 
 const BrandIntroSection = () => {
   return (
-    <section className="relative py-24 px-4 bg-gradient-to-b from-white via-orange-50 to-orange-100 overflow-hidden">
+    <section
+      id="about"
+      className="relative py-24 px-4 bg-gradient-to-b from-white via-orange-50 to-orange-100 overflow-hidden"
+    >
       {/* Background Illustrations */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Left illustration - now visible on mobile with rotation */}
@@ -60,7 +64,13 @@ const BrandIntroSection = () => {
             and the joy of freshly made waffles. With a strong presence across
             India, our brand continues to grow through a franchise model that
             welcomes and supports ambitious entrepreneurs — especially women who
-            want to build something of their own.
+            want to build something of their own.{" "}
+            <Link
+              to="/franchise"
+              className="text-primary hover:underline font-semibold"
+            >
+              Learn more about our franchise opportunities.
+            </Link>
           </p>
 
           {/* Decorative bottom element */}

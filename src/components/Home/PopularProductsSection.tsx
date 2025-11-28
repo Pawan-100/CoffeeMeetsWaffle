@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import menu1 from "../../assets/menu/1.jpeg";
 import menu5 from "../../assets/menu/5.jpeg";
 import menu8 from "../../assets/menu/8.jpeg";
@@ -47,13 +48,6 @@ const products: Product[] = [
 
 const PopularProductsSection = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
-  const handleMenuClick = () => {
-    const menuSection = document.getElementById("menu");
-    if (menuSection) {
-      menuSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <section
@@ -188,8 +182,8 @@ const PopularProductsSection = () => {
 
         {/* CTA Button */}
         <div className="text-center" data-testid="menu-cta-container">
-          <button
-            onClick={handleMenuClick}
+          <Link
+            to="/menu"
             className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold px-10 py-5 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-orange-500/50"
             data-testid="view-full-menu-btn"
           >
@@ -210,7 +204,7 @@ const PopularProductsSection = () => {
 
             {/* Button Glow Effect */}
             <div className="absolute inset-0 rounded-full bg-white/20 scale-0 group-hover:scale-100 transition-transform duration-500 -z-10"></div>
-          </button>
+          </Link>
         </div>
       </div>
     </section>

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const WomenEmpowermentSection = () => {
   const benefits = [
     {
@@ -81,11 +83,6 @@ const WomenEmpowermentSection = () => {
         "Streamlined onboarding with priority assistance to help you launch your outlet faster.",
     },
   ];
-
-  const handleFranchiseInquiry = () => {
-    // Scroll to franchise inquiry section or open contact form
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   return (
     <section
@@ -222,8 +219,8 @@ const WomenEmpowermentSection = () => {
               Join our community of successful women entrepreneurs and take the
               first step toward building your own business legacy.
             </p>
-            <button
-              onClick={handleFranchiseInquiry}
+            <Link
+              to="/franchise"
               className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-rose-500 via-orange-500 to-amber-500 hover:from-rose-600 hover:via-orange-600 hover:to-amber-600 text-white font-bold px-10 py-5 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-orange-500/50"
               data-testid="women-franchise-inquiry-btn"
             >
@@ -244,7 +241,7 @@ const WomenEmpowermentSection = () => {
 
               {/* Button Glow Effect */}
               <div className="absolute inset-0 rounded-full bg-white/20 scale-0 group-hover:scale-100 transition-transform duration-500 -z-10"></div>
-            </button>
+            </Link>
           </div>
         </div>
       </div>
