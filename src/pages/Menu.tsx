@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { GiNachos } from "react-icons/gi";
 import { IoFastFoodOutline, IoClose } from "react-icons/io5";
 import { BiDrink } from "react-icons/bi";
@@ -9,41 +9,41 @@ import { PiCookieBold } from "react-icons/pi";
 import img1 from "../assets/menu/1.jpeg";
 import img2 from "../assets/menu/2.jpeg";
 import img3 from "../assets/menu/3.jpeg";
-import img4 from "../assets/menu/4.jpeg";
+// import img4 from "../assets/menu/4.jpeg";
 import img5 from "../assets/menu/5.jpeg";
 import img6 from "../assets/menu/6.jpeg";
 import img7 from "../assets/menu/7.jpeg";
 import img8 from "../assets/menu/8.jpeg";
 import img9 from "../assets/menu/9.jpeg";
 import img10 from "../assets/menu/10.jpeg";
-import img11 from "../assets/menu/11.jpeg";
+// import img11 from "../assets/menu/11.jpeg";
 import img12 from "../assets/menu/12.jpeg";
 import img13 from "../assets/menu/13.jpeg";
 import img14 from "../assets/menu/14.jpeg";
 import img15 from "../assets/menu/15.jpeg";
 import img16 from "../assets/menu/16.jpeg";
-import img17 from "../assets/menu/17.jpeg";
-import img18 from "../assets/menu/18.jpeg";
-import img19 from "../assets/menu/19.jpeg";
-import img20 from "../assets/menu/20.jpeg";
-import img21 from "../assets/menu/21.jpeg";
-import img22 from "../assets/menu/22.jpeg";
-import img23 from "../assets/menu/23.jpeg";
-import img24 from "../assets/menu/24.jpeg";
+// import img17 from "../assets/menu/17.jpeg";
+// import img18 from "../assets/menu/18.jpeg";
+// import img19 from "../assets/menu/19.jpeg";
+// import img20 from "../assets/menu/20.jpeg";
+// import img21 from "../assets/menu/21.jpeg";
+// import img22 from "../assets/menu/22.jpeg";
+// import img23 from "../assets/menu/23.jpeg";
+// import img24 from "../assets/menu/24.jpeg";
 import img25 from "../assets/menu/25.jpeg";
 import img26 from "../assets/menu/26.jpeg";
-import img27 from "../assets/menu/27.jpeg";
-import img28 from "../assets/menu/28.jpeg";
+// import img27 from "../assets/menu/27.jpeg";
+// import img28 from "../assets/menu/28.jpeg";
 import img29 from "../assets/menu/29.jpeg";
-import img30 from "../assets/menu/30.jpeg";
-import img31 from "../assets/menu/31.jpeg";
-import img32 from "../assets/menu/32.jpeg";
-import img33 from "../assets/menu/33.jpeg";
+// import img30 from "../assets/menu/30.jpeg";
+// import img31 from "../assets/menu/31.jpeg";
+// import img32 from "../assets/menu/32.jpeg";
+// import img33 from "../assets/menu/33.jpeg";
 import img34 from "../assets/menu/34.jpeg";
-import img35 from "../assets/menu/35.jpeg";
-import img36 from "../assets/menu/36.jpeg";
+// import img35 from "../assets/menu/35.jpeg";
+// import img36 from "../assets/menu/36.jpeg";
 import img37 from "../assets/menu/37.jpeg";
-import img38 from "../assets/menu/38.jpeg";
+// import img38 from "../assets/menu/38.jpeg";
 import img39 from "../assets/menu/39.jpeg";
 import img40 from "../assets/menu/40.jpeg";
 import img41 from "../assets/menu/41.jpeg";
@@ -74,6 +74,11 @@ const Menu: React.FC = () => {
       setIsClosing(false);
     }, 300); // Match the animation duration
   };
+
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const menuData: MenuSection[] = [
     {
