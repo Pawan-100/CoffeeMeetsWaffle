@@ -24,6 +24,7 @@ const Franchise: React.FC = () => {
   };
 
   const handleSubmit = (e: React.FormEvent) => {
+    console.log(e);
     // For Netlify Forms, we don't prevent default
     // The form will submit naturally to Netlify
     setIsSubmitted(true);
