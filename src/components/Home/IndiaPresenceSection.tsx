@@ -2,22 +2,21 @@ import { useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import markerIcon from "../../assets/illustrations/illustration_1.png";
 
 // Fix for default marker icon in react-leaflet
 // @ts-ignore
 delete L.Icon.Default.prototype._getIconUrl;
-// Create a custom red marker icon
+// Create a custom marker icon using the illustration
 const redIcon = new L.Icon({
-  iconRetinaUrl:
-    "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png",
-  iconUrl:
-    "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png",
+  iconUrl: markerIcon,
+  iconRetinaUrl: markerIcon,
   shadowUrl:
     "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png",
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41],
+  iconSize: [80, 80],
+  iconAnchor: [37, 72],
+  popupAnchor: [0, -60],
+  shadowSize: [120, 72],
 });
 
 interface Store {
