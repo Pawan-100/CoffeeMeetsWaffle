@@ -1,48 +1,48 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import menu1 from "../../assets/menu/1.jpeg";
-import menu5 from "../../assets/menu/5.jpeg";
-import menu8 from "../../assets/menu/8.jpeg";
-import menu12 from "../../assets/menu/12.jpeg";
-import menu15 from "../../assets/menu/15.jpeg";
-import menu20 from "../../assets/menu/20.jpeg";
+import classicWaffleImg from "../../assets/menu/2.jpeg";
+import lollyWaffleImg from "../../assets/menu/9.jpeg";
+import sandwichImg from "../../assets/menu/34.jpeg";
+import milkshakeImg from "../../assets/menu/1.jpeg";
+import coffeeImg from "../../assets/menu/4.jpeg";
+import nachosImg from "../../assets/menu/40.jpeg";
 
-interface Product {
+interface Category {
   title: string;
   desc: string;
   img: string;
 }
 
-const products: Product[] = [
+const categories: Category[] = [
   {
-    title: "Classic Belgian Waffle",
-    desc: "Light, crispy perfection served with rich toppings.",
-    img: menu1,
+    title: "Classic Waffle",
+    desc: "Golden, crispy Belgian waffles with delicious toppings.",
+    img: classicWaffleImg,
   },
   {
-    title: "Signature Espresso",
-    desc: "Bold, handcrafted coffee made from premium beans.",
-    img: menu5,
+    title: "Coffee",
+    desc: "Rich, smooth thick cold coffee for the perfect refreshment.",
+    img: coffeeImg,
   },
   {
-    title: "Chocolate Delight Waffle",
-    desc: "Decadent chocolate indulgence in every bite.",
-    img: menu8,
+    title: "Lolly Waffle",
+    desc: "Fun waffle pops perfect for on-the-go indulgence.",
+    img: lollyWaffleImg,
   },
   {
-    title: "Caramel Cappuccino",
-    desc: "Smooth espresso with velvety caramel notes.",
-    img: menu12,
+    title: "Sandwich",
+    desc: "Freshly grilled sandwiches with premium fillings.",
+    img: sandwichImg,
   },
   {
-    title: "Berry Bliss Waffle",
-    desc: "Fresh berries and cream on golden waffle perfection.",
-    img: menu15,
+    title: "Milkshakes",
+    desc: "Creamy, thick shakes in a variety of flavors.",
+    img: milkshakeImg,
   },
   {
-    title: "Iced Vanilla Latte",
-    desc: "Refreshing cold brew with smooth vanilla finish.",
-    img: menu20,
+    title: "Nachos",
+    desc: "Crispy tortilla chips loaded with cheese and toppings.",
+    img: nachosImg,
   },
 ];
 
@@ -69,30 +69,30 @@ const PopularProductsSection = () => {
             className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-orange-600 to-amber-600"
             data-testid="popular-products-title"
           >
-            Our Most Loved Flavors
+            Our Menu Categories
           </h2>
           <p
             className="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto px-4"
             data-testid="popular-products-subtext"
           >
-            From signature waffles to handcrafted coffees, our menu is known for
-            taste, quality, and consistency — winning hearts across every city
-            we serve.
+            From signature waffles to delicious coffees and milkshakes, explore
+            our diverse menu crafted with love — winning hearts across every
+            city we serve.
           </p>
         </div>
 
-        {/* Products Grid */}
+        {/* Categories Grid */}
         <div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
-          data-testid="products-grid"
+          data-testid="categories-grid"
         >
-          {products.map((product, index) => (
+          {categories.map((category, index) => (
             <div
               key={index}
               className="group relative"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              data-testid={`product-card-${index}`}
+              data-testid={`category-card-${index}`}
             >
               {/* Card Container with 3D Transform */}
               <div
@@ -119,10 +119,10 @@ const PopularProductsSection = () => {
                     }}
                   >
                     <img
-                      src={product.img}
-                      alt={product.title}
+                      src={category.img}
+                      alt={category.title}
                       className="w-full h-full object-cover"
-                      data-testid={`product-image-${index}`}
+                      data-testid={`category-image-${index}`}
                     />
                   </div>
 
@@ -146,15 +146,15 @@ const PopularProductsSection = () => {
                 >
                   <h3
                     className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors duration-300"
-                    data-testid={`product-title-${index}`}
+                    data-testid={`category-title-${index}`}
                   >
-                    {product.title}
+                    {category.title}
                   </h3>
                   <p
                     className="text-gray-600 leading-relaxed"
-                    data-testid={`product-desc-${index}`}
+                    data-testid={`category-desc-${index}`}
                   >
-                    {product.desc}
+                    {category.desc}
                   </p>
 
                   {/* Decorative Line */}
