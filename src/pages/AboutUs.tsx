@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import ownerImage from "../assets/owner.jpeg";
 
 // SVG Icons as components for cleaner code
 const CoffeeIcon = () => (
@@ -107,23 +108,13 @@ const TrophyIcon = () => (
 // Awards Data
 const awards = [
   {
-    title: "Best Café Franchise India",
-    organization: "Franchise India Awards",
-    year: "2023",
+    title: "Women Icon Award",
+    organization: "",
+    year: "2024",
   },
   {
-    title: "Excellence in F&B Innovation",
-    organization: "Food & Beverage Excellence Forum",
-    year: "2022",
-  },
-  {
-    title: "Women Entrepreneur of the Year",
-    organization: "FICCI FLO",
-    year: "2023",
-  },
-  {
-    title: "Top 50 Emerging Brands",
-    organization: "India Retail Forum",
+    title: "Samidnya Hirkani Rajyastarya Puraskar",
+    organization: "",
     year: "2024",
   },
 ];
@@ -326,16 +317,25 @@ const AboutUs: React.FC = () => {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-amber-500/20 rounded-3xl transform rotate-3"></div>
                 <div className="relative bg-gradient-to-br from-orange-100 to-amber-100 rounded-3xl p-8 lg:p-12 shadow-xl">
-                  {/* Placeholder for Founder Image */}
-                  <div className="aspect-[4/5] bg-gradient-to-br from-orange-200 to-amber-200 rounded-2xl flex items-center justify-center">
-                    <div className="text-center p-8">
-                      <div className="w-32 h-32 mx-auto bg-gradient-to-br from-primary to-amber-500 rounded-full flex items-center justify-center mb-6 shadow-lg">
-                        <span className="text-5xl font-bold text-white">
-                          SK
-                        </span>
+                  {/* Founder Image */}
+                  <div className="aspect-[4/5] bg-gradient-to-br from-orange-200 to-amber-200 rounded-2xl flex items-center justify-center relative overflow-hidden">
+                    {/* Placeholder - visible until image loads */}
+                    <div className="absolute inset-0 flex items-center justify-center text-center p-8">
+                      <div>
+                        <div className="w-32 h-32 mx-auto bg-gradient-to-br from-primary to-amber-500 rounded-full flex items-center justify-center mb-6 shadow-lg">
+                          <span className="text-5xl font-bold text-white">
+                            SK
+                          </span>
+                        </div>
+                        <p className="text-gray-600 text-sm">Founder & CEO</p>
                       </div>
-                      <p className="text-gray-600 text-sm">Founder & CEO</p>
                     </div>
+                    {/* Actual owner image */}
+                    <img
+                      src={ownerImage}
+                      alt="Sampadaa Kulkarni - Founder & CEO"
+                      className="absolute inset-0 w-full h-full object-cover rounded-2xl"
+                    />
                   </div>
                 </div>
               </div>
@@ -358,32 +358,29 @@ const AboutUs: React.FC = () => {
                 className="text-3xl lg:text-5xl font-bold text-gray-900 leading-tight"
                 data-testid="founder-name"
               >
-                Sampada Kulkarni
+                Sampadaa Kulkarni
               </h2>
 
               <div className="space-y-5 text-lg text-gray-700 leading-relaxed">
                 <p data-testid="founder-story-text-1">
-                  Sampada Kulkarni's journey into the world of food and
-                  entrepreneurship wasn't just about building a business — it
-                  was about creating opportunities for others to succeed.
+                  Sampadaa Kulkarni, a resilient and accomplished women
+                  entrepreneur who has triumphed over societal challenges. As a
+                  single mother, she manages a successful chain of cafes
+                  spanning across India,offering a unique blend of multigrain
+                  waffles and authentic coffee.She was a former French
+                  professor, having spent 19 years in the educational field and
+                  earning recognition as the recipient of the Best Professor
+                  Award, by Ashoka Group of Education.
                 </p>
                 <p data-testid="founder-story-text-2">
-                  With a deep-rooted passion for quality and an unwavering
-                  belief in the power of community, Sampada envisioned Coffee
-                  Meets Waffle as more than a café chain. She saw it as a
-                  platform to{" "}
+                  Her recognition as{" "}
+                  <strong className="text-gray-900">Women Icon 2024</strong> by
+                  The Crazy Tales and{" "}
                   <strong className="text-gray-900">
-                    uplift aspiring entrepreneurs
-                  </strong>
-                  , especially women seeking financial independence.
-                </p>
-                <p data-testid="founder-story-text-3">
-                  "I didn't start this to just sell coffee and waffles," Sampada
-                  often says.{" "}
-                  <em className="text-primary">
-                    "I started this to prove that with the right support, anyone
-                    can build their own success story."
-                  </em>
+                    Samidnya Hirkani Rajyastarya Puraskar 2024
+                  </strong>{" "}
+                  is well-deserved. These awards highlight her contributions to
+                  entrepreneurship and society.
                 </p>
               </div>
 
@@ -393,9 +390,10 @@ const AboutUs: React.FC = () => {
                   The Vision
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  To empower 100 women entrepreneurs by 2026, helping them build
-                  thriving businesses while delivering exceptional coffee and
-                  waffle experiences to communities across India.
+                  Our Vision is to serve 100% eco friendly and sustainably
+                  sourced perfect cup of Coffee specially crafted for you. We
+                  strive each day to cater our Indian Palate customers with
+                  world class taste of coffee.
                 </p>
               </div>
             </div>

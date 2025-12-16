@@ -27,12 +27,107 @@ interface Store {
 }
 
 const stores: Store[] = [
-  { name: "Pune", lat: 18.533299, lng: 73.829699 },
   {
-    name: "Nashik",
-    lat: 19.990964211587926,
-    lng: 73.76178492927377,
+    name: "City Centre Mall, Nashik",
+    lat: 19.9909,
+    lng: 73.7618,
     locationLink: "https://maps.app.goo.gl/AzqTSFkr7sXgovEm8",
+  },
+  {
+    name: "Oberoi Mall, Mumbai",
+    lat: 19.174166,
+    lng: 72.860409,
+    locationLink: "https://maps.app.goo.gl/4RdXyyBDHai8fy6m8",
+  },
+  {
+    name: "Infinity Mall, Mumbai",
+    lat: 19.141255,
+    lng: 72.830902,
+    locationLink: "https://maps.app.goo.gl/ASmbQS8LFG4oH3sX6",
+  },
+  {
+    name: "Capital Mall, Mumbai",
+    lat: 19.4072,
+    lng: 72.8218,
+    locationLink: "https://maps.app.goo.gl/omxAezHY9WXQ8G4K8",
+  },
+  {
+    name: "Prozone Mall, Aurangabad",
+    lat: 19.8763,
+    lng: 75.3723,
+    locationLink: "https://maps.app.goo.gl/neUtGJzDvBN33Dua9",
+  },
+  {
+    name: "Kumar Pacific Mall, Pune",
+    lat: 18.5011,
+    lng: 73.8723,
+    locationLink: "https://maps.app.goo.gl/xS98uywFCmCQJAiA9",
+  },
+  {
+    name: "Pavillion Mall, Pune",
+    lat: 18.5339,
+    lng: 73.8301,
+    locationLink: "https://maps.app.goo.gl/BwCGPshiwy84eHCB6",
+  },
+  {
+    name: "Millenium Mall, Pune",
+    lat: 18.6002,
+    lng: 73.7561,
+    locationLink: "https://maps.app.goo.gl/GdP83rZGsS1B5PUM6",
+  },
+  {
+    name: "Phoneix Market City Mall, Pune",
+    lat: 18.5629,
+    lng: 73.9173,
+    locationLink: "https://maps.app.goo.gl/8524Ed7Q4a7fsyJj7",
+  },
+  {
+    name: "Grand Highstreet Mall, Pune",
+    lat: 18.594,
+    lng: 73.7257,
+    locationLink: "https://maps.app.goo.gl/XTKMLtrhp3Upxob7A",
+  },
+  {
+    name: "City Square Mall, Pune",
+    lat: 18.6289,
+    lng: 73.7833,
+    locationLink: "https://maps.app.goo.gl/mLqErEGiRN1YwV4w8",
+  },
+  {
+    name: "Rahul Raj Mall, Surat",
+    lat: 21.1551,
+    lng: 72.7675,
+    locationLink: "https://maps.app.goo.gl/2tGn8SJ2pCwtwPjZA",
+  },
+
+  {
+    name: "Triumo Mall, Vadodara",
+    lat: 22.3072,
+    lng: 73.1812,
+  },
+  {
+    name: "Relience Mall, Rajkot",
+    lat: 22.2796,
+    lng: 70.7773,
+    locationLink: "https://maps.app.goo.gl/hfFfhfGiUhmMtcPQ7",
+  },
+  {
+    name: "DY Patil Mall, Kolhapur",
+    lat: 16.7037,
+    lng: 74.2509,
+    locationLink: "https://maps.app.goo.gl/u8mHfmTXAuf4fiZY9",
+  },
+  {
+    name: "Citi Mall, Mumbai",
+    lat: 19.1387,
+    lng: 72.8318,
+    locationLink: "https://maps.app.goo.gl/rsTTNCzoheW25UVLA",
+  },
+  {
+    name: "Xperia Mall, Mumbai",
+    lat: 19.1658,
+    lng: 73.0753,
+    locationLink: "https://maps.app.goo.gl/9h99X3WqeGi7EBoP9",
   },
 ];
 
