@@ -162,46 +162,34 @@ const values = [
 // Timeline Milestones Data
 const milestones = [
   {
-    year: "2018",
+    year: "Nov 2022",
     title: "The Beginning",
     description:
-      "Coffee Meets Waffle was born from a simple idea — combining great coffee with delicious waffles in one inviting space.",
-  },
-  {
-    year: "2019",
-    title: "First Outlet Opens",
-    description:
-      "Our flagship café opened doors in Pune, instantly winning hearts with our signature menu.",
-  },
-  {
-    year: "2020",
-    title: "Franchise Model Launched",
-    description:
-      "We introduced our franchise program, focusing especially on empowering women entrepreneurs.",
-  },
-  {
-    year: "2021",
-    title: "Rapid Expansion",
-    description:
-      "Despite challenging times, we grew to 5 locations across Maharashtra.",
-  },
-  {
-    year: "2022",
-    title: "10 Outlets Milestone",
-    description:
-      "Celebrated our 10th outlet opening and received recognition for F&B innovation.",
+      "Coffee Meets Waffle was established in Nashik as a premium specialty coffee company with a vision to serve world-class coffee to Indian customers.",
   },
   {
     year: "2023",
+    title: "First Outlet Opens",
+    description:
+      "Our flagship café opened doors at City Centre Mall, Nashik — instantly winning hearts with our signature waffles and coffee.",
+  },
+  {
+    year: "2023",
+    title: "Rapid Expansion",
+    description:
+      "Expanded to multiple PVR locations across Maharashtra, pioneering best-in-class coffee with varieties of delicious waffles.",
+  },
+  {
+    year: "2024",
     title: "National Recognition",
     description:
-      "Won multiple awards including Best Café Franchise and Women Entrepreneur of the Year.",
+      "Received Women Icon Award and Samidnya Hirkani Rajyastarya Puraskar for our founder's exceptional entrepreneurship.",
   },
   {
     year: "2024",
     title: "17+ Locations & Growing",
     description:
-      "Now present across India with a vision to empower 100 women entrepreneurs by 2026.",
+      "Now serving across Mumbai, Pune, Nashik, Surat, Vadodara, Rajkot, Aurangabad & Kolhapur with a vision to empower 100 women entrepreneurs.",
   },
 ];
 
@@ -269,28 +257,36 @@ const AboutUs: React.FC = () => {
             {/* Story Content */}
             <div className="space-y-6 text-lg lg:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto px-4">
               <p data-testid="brand-story-text-1">
-                Coffee Meets Waffle began with a simple dream — to create a
-                space where the aroma of freshly brewed coffee blends perfectly
-                with the warmth of handmade waffles. What started as a single
-                café has now grown into a beloved brand with{" "}
+                Coffee Meets Waffle is a{" "}
                 <strong className="text-primary">
-                  17+ locations across India
-                </strong>
-                .
+                  premium specialty coffee company
+                </strong>{" "}
+                established in{" "}
+                <strong className="text-primary">November 2022</strong> in
+                Nashik. Our Chef Prabjyot Singh, with more than{" "}
+                <strong>25 years of experience</strong> in the hotel industry,
+                is relentlessly working to provide a delightful coffee
+                experience.
               </p>
               <p data-testid="brand-story-text-2">
-                Our journey isn't just about serving great food. It's about{" "}
-                <strong className="text-gray-900">crafting experiences</strong>,
-                building communities, and empowering individuals — especially
-                women — to become successful entrepreneurs.
+                We currently serve at{" "}
+                <strong className="text-primary">
+                  17+ locations across India
+                </strong>{" "}
+                where we've pioneered and introduced best-in-class coffee along
+                with varieties of delicious waffles. We are humbled by the
+                phenomenal client response and incredible love from our
+                customers.
               </p>
               <p data-testid="brand-story-text-3">
                 Every outlet you visit carries the same commitment to{" "}
                 <strong className="text-gray-900">
                   quality, taste, and consistency
-                </strong>{" "}
-                that we started with. Because we believe great food should bring
-                people together, no matter where they are.
+                </strong>
+                . We cater to customers across all demographics — urban &
+                suburban, middle & upper class, well-educated, socially aware,
+                active & busy individuals who appreciate premium coffee served
+                quickly in a quality way.
               </p>
             </div>
 
@@ -394,6 +390,16 @@ const AboutUs: React.FC = () => {
                   sourced perfect cup of Coffee specially crafted for you. We
                   strive each day to cater our Indian Palate customers with
                   world class taste of coffee.
+                </p>
+              </div>
+
+              {/* USP Statement */}
+              <div className="bg-gradient-to-r from-amber-50 via-orange-50 to-primary/10 p-6 rounded-2xl border border-amber-200">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Our USP
+                </h3>
+                <p className="text-gray-700 leading-relaxed font-medium text-lg italic">
+                  "Fresh Coffee, Served Quickly in a Quality Way."
                 </p>
               </div>
             </div>

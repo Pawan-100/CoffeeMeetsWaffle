@@ -4,7 +4,7 @@ import classicWaffleImg from "../../assets/menu/2.jpeg";
 import lollyWaffleImg from "../../assets/menu/9.jpeg";
 import sandwichImg from "../../assets/menu/34.jpeg";
 import milkshakeImg from "../../assets/menu/1.jpeg";
-import coffeeImg from "../../assets/menu/4.jpeg";
+import coffeeImg from "../../assets/menu/33.jpeg";
 import nachosImg from "../../assets/menu/40.jpeg";
 
 interface Category {
@@ -15,33 +15,33 @@ interface Category {
 
 const categories: Category[] = [
   {
-    title: "Classic Waffle",
-    desc: "Golden, crispy Belgian waffles with delicious toppings.",
+    title: "Classic Waffles",
+    desc: "Golden, crispy multigrain waffles — including Nutella, fruit-based & bubble waffles.",
     img: classicWaffleImg,
   },
   {
-    title: "Coffee",
-    desc: "Rich, smooth thick cold coffee for the perfect refreshment.",
+    title: "Coffee & Tea",
+    desc: "Premium freshly brewed coffee & authentic tea, specially crafted for Indian palates.",
     img: coffeeImg,
   },
   {
-    title: "Lolly Waffle",
-    desc: "Fun waffle pops perfect for on-the-go indulgence.",
+    title: "Lolly Waffles",
+    desc: "Fun waffle pops perfect for on-the-go indulgence with delicious toppings.",
     img: lollyWaffleImg,
   },
   {
-    title: "Sandwich",
-    desc: "Freshly grilled sandwiches with premium fillings.",
+    title: "Sandwiches & Breads",
+    desc: "Freshly grilled sandwiches with premium fillings and quality breads.",
     img: sandwichImg,
   },
   {
-    title: "Milkshakes",
-    desc: "Creamy, thick shakes in a variety of flavors.",
+    title: "Ice Cream & Milkshakes",
+    desc: "Creamy ice cream and thick frappuccino milkshakes in various flavors.",
     img: milkshakeImg,
   },
   {
-    title: "Nachos",
-    desc: "Crispy tortilla chips loaded with cheese and toppings.",
+    title: "Pasta & Nachos",
+    desc: "Delicious pasta dishes and crispy nachos loaded with cheese and toppings.",
     img: nachosImg,
   },
 ];

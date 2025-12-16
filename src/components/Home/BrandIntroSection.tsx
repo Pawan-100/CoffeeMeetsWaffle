@@ -52,7 +52,7 @@ const BrandIntroSection = () => {
             className="text-3xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight px-4"
             data-testid="brand-intro-headline"
           >
-            A Brand Built on Taste, Trust & Quality
+            A Premium Specialty Coffee Experience
           </h2>
 
           {/* Text Content */}
@@ -60,11 +60,15 @@ const BrandIntroSection = () => {
             className="text-base lg:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto px-4"
             data-testid="brand-intro-text"
           >
-            Coffee Meets Waffle brings together the warmth of handcrafted coffee
-            and the joy of freshly made waffles. With a strong presence across
-            India, our brand continues to grow through a franchise model that
-            welcomes and supports ambitious entrepreneurs — especially women who
-            want to build something of their own.{" "}
+            Coffee Meets Waffle is a premium specialty Nashik's coffee company
+            established in{" "}
+            <strong className="text-primary">November 2022</strong>. Our Chef
+            Prabjyot Singh, with more than{" "}
+            <strong>25 years of experience</strong> in the hotel industry, is
+            relentlessly working to provide a delightful coffee experience.
+            Currently serving at 17+ locations across India, we've pioneered and
+            introduced best-in-class coffee along with varieties of delicious
+            waffles.{" "}
             <Link
               to="/franchise"
               className="text-primary hover:underline font-semibold"
