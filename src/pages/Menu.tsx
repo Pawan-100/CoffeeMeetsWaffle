@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { IoClose } from "react-icons/io5";
-// import { IoFastFoodOutline } from "react-icons/io5";
-// import { BiDrink } from "react-icons/bi";
-// import { MdOutlineBreakfastDining } from "react-icons/md";
-// import { PiCookieBold } from "react-icons/pi";
+import { IoFastFoodOutline } from "react-icons/io5";
+import { BiDrink, BiCoffee } from "react-icons/bi";
+import { MdOutlineBreakfastDining, MdIcecream } from "react-icons/md";
+import { PiCookieBold } from "react-icons/pi";
+import { GiNoodles, GiNachos } from "react-icons/gi";
+import { FaMugHot } from "react-icons/fa";
 import { MdStars } from "react-icons/md";
 
 // Import all menu images
@@ -60,6 +62,192 @@ interface MenuSection {
   items: MenuItem[];
   bgColor: string;
 }
+
+// Full menu data from CMW MENU 2024 Excel file
+interface FullMenuSection {
+  title: string;
+  icon: React.ReactNode;
+  items: string[];
+  bgColor: string;
+}
+
+const fullMenuData: FullMenuSection[] = [
+  {
+    title: "Hot Beverages",
+    icon: <BiCoffee className="text-3xl md:text-4xl" />,
+    bgColor: "bg-amber-50",
+    items: [
+      "REGULAR FRAPPUCCINO (COLD COFFEE)",
+      "ESPRESSO SOLO 30ML",
+      "COFFEE FRAPPE",
+      "ESPRESSO DOPPIA 60ML",
+      "MOCHA FRAPPE",
+      "AMERICANO",
+      "WHITE MOCHA FRAPPE",
+      "CAPPUCCINO (Strong Coffee)",
+      "IRISH FRAPPE",
+      "LATTE (Regular Coffee)",
+      "VANILLA FRAPPE",
+      "MOCHA / WHITE MOCHA (Chocolate Coffee)",
+      "HAZELNUT FRAPPE (BEST SELLER)",
+      "MACCHIATO",
+      "CARAMEL FRAPPE",
+      "FLAT WHITE",
+      "NUTELLA FRAPPE",
+      "HOT CHOCOLATE",
+      "DOUBLE CHOCO CHIPS FRAPPE",
+      "NUTELLA HOT CHOCOLATE",
+    ],
+  },
+  {
+    title: "Hot Tea's",
+    icon: <FaMugHot className="text-3xl md:text-4xl" />,
+    bgColor: "bg-green-50",
+    items: [
+      "BLACK TEA",
+      "GREEN TEA",
+      "BLUE BERRY",
+      "HONEY TEA",
+      "MIX BERRY",
+      "INDIAN MASALA CHAI",
+      "GINGER/LEMON/CINNAMON TEA",
+    ],
+  },
+  {
+    title: "Ice Cream Milk Shake / Smoothies",
+    icon: <BiDrink className="text-3xl md:text-4xl" />,
+    bgColor: "bg-pink-50",
+    items: [
+      "STRAWBERRY SMOOTHIE",
+      "GREEN TEA",
+      "BLUE BERRY",
+      "HONEY TEA",
+      "MIX BERRY",
+      "INDIAN MASALA CHAI",
+      "PINEAPPLE",
+      "GINGER/LEMON/CINNAMON TEA",
+      "MANGO",
+      "CHOCOLATE ON THE ROCKS",
+      "CHOCOLATE HAZELNUT (BEST SELLER)",
+      "LEMON ICE TEA",
+      "OREO / KIT KAT",
+      "PEACH ICE TEA",
+      "NUTELLA",
+      "ICE AMERICANO",
+      "ICE LATTE",
+      "ICE CAPPUCCINO",
+      "ICE COFFEE MOCHA",
+    ],
+  },
+  {
+    title: "Classic Waffle",
+    icon: <MdOutlineBreakfastDining className="text-3xl md:text-4xl" />,
+    bgColor: "bg-orange-50",
+    items: [
+      "REGULAR",
+      "LOLLY WAFFLE",
+      "HONEY WAFFLE",
+      "HONEY LOLLY WAFFLE",
+      "DARK CHOCOLATE WAFFLE",
+      "CHOCOLATE LOLLY WAFFLE",
+      "WHITE CHOCOLATE WAFFLE",
+      "MILK CHOCOLATE LOLLY WAFFLE",
+      "MILK CHOCOLATE WAFFLE",
+      "WHITE CHOCOLATE LOLLY WAFFLE",
+      "KIT KAT WAFFLE",
+      "TRIPLE CHOCOLATE LOLLY WAFFLE",
+      "OREO WAFFLE",
+      "4G CHOCOLATE LOLLY WAFFLE",
+      "COFFEE WAFFLE",
+      "NUTELLA CHOCOLATE LOLLY WAFFLE",
+      "HAZELNUT CHOCOLATE LOLLY WAFFLE",
+      "NUTELLA / BELGIAN WAFFLE (BEST SELLER)",
+      "RED VELVET LOLLY WAFFLE",
+      "HAZELNUT CHOCOLATE WAFFLE",
+      "RED VELVET WAFFLE",
+    ],
+  },
+  {
+    title: "Ice Cream Bubble Waffle",
+    icon: <MdIcecream className="text-3xl md:text-4xl" />,
+    bgColor: "bg-purple-50",
+    items: [
+      "REGULAR",
+      "CMW CHEF'S SPECIAL WAFFLE",
+      "MOCHA BROWNIE WAFFLE",
+      "AMERICAN NUTS BUBBLE WAFFLE",
+    ],
+  },
+  {
+    title: "Fruit Base Bubble Waffle",
+    icon: <PiCookieBold className="text-3xl md:text-4xl" />,
+    bgColor: "bg-red-50",
+    items: [
+      "CLASSIC WAFFLE REGULAR",
+      "MANGO KING BUBBLE WAFFLE",
+      "STRAWBERRY WAFFLE",
+      "MR. BELGIUM BUBBLE WAFFLE",
+      "BLUE BERRY WAFFLE",
+      "MR. CHOCOLATE BUBBLE WAFFLE",
+      "MANGO WAFFLE",
+      "MISS. STRAWBERRY BUBBLE WAFFLE",
+      "MIX BERRY WAFFLE",
+      "MR. OREO BUBBLE WAFFLE",
+      "PINEAPPLE PUNCH",
+      "NUTELLA BUBBLE WAFFLE",
+      "MIX FRUIT WITH CREAM CHEESE",
+      "ROYAL RED VELVET WAFFLE",
+      "CHOCO CHIPS BUBBLE WAFFLE",
+    ],
+  },
+  {
+    title: "Sandwich & Garlic Breads",
+    icon: <IoFastFoodOutline className="text-3xl md:text-4xl" />,
+    bgColor: "bg-yellow-50",
+    items: [
+      "REGULAR ICE CREAM",
+      "SINGLE SCOOP",
+      "VEG GRILLED SANDWICH",
+      "VANILLA",
+      "VEG CHEESE SANDWICH",
+      "STRAWBERRY",
+      "CORN CHEESE SANDWICH",
+      "PINEAPPLE",
+      "CHICKEN GRILLED SANDWICH",
+      "MANGO",
+      "CHICKEN CHEESE SANDWICH",
+      "CHOCOLATE",
+      "CHICKEN MAYO SANDWICH",
+      "BUTTER SCOTCH",
+      "CHOCOLATE SANDWICH",
+      "BELGIAN CHOCOLATE",
+      "CHEESE",
+      "CHILLI TOAST",
+      "MOCHA BROWNIE",
+      "GARLIC BREAD",
+      "AMERICAN NUTS",
+    ],
+  },
+  {
+    title: "Nachos",
+    icon: <GiNachos className="text-3xl md:text-4xl" />,
+    bgColor: "bg-lime-50",
+    items: ["REGULAR", "PERI PERI NACHOS", "CHEESY NACHOS"],
+  },
+  {
+    title: "Pasta",
+    icon: <GiNoodles className="text-3xl md:text-4xl" />,
+    bgColor: "bg-rose-50",
+    items: [
+      "REGULAR",
+      "WHITE SAUCE PASTA",
+      "RED SAUCE PASTA",
+      "CHICKEN WHITE SAUCE PASTA",
+      "CHICKEN RED SAUCE PASTA",
+      "EXTRA CHEESE",
+    ],
+  },
+];
 
 const Menu: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<{
@@ -223,6 +411,89 @@ const Menu: React.FC = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Full Menu Section - All Items from Excel */}
+      <div className="bg-gradient-to-b from-orange-50 via-white to-orange-50 py-20">
+        <div className="container mx-auto px-4">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <div className="inline-block mb-4">
+              <span className="bg-gradient-to-r from-[#F57B51] to-[#FFB84D] text-white text-sm font-semibold px-4 py-2 rounded-full uppercase tracking-wider">
+                Explore Our Offerings
+              </span>
+            </div>
+            <h2
+              className="text-4xl md:text-6xl font-bold text-gray-800 mb-4"
+              data-testid="full-menu-title"
+            >
+              Complete Menu
+            </h2>
+            <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto">
+              From aromatic coffees to delicious waffles, discover every
+              delightful treat we have to offer
+            </p>
+          </div>
+
+          {/* Full Menu Categories - 2 Column Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {fullMenuData.map((section, sectionIndex) => (
+              <div
+                key={sectionIndex}
+                className={`group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 ${section.bgColor}`}
+                data-testid={`full-menu-section-${section.title
+                  .toLowerCase()
+                  .replace(/\s+/g, "-")
+                  .replace(/[&']/g, "")}`}
+              >
+                {/* Decorative Background Elements */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#F57B51]/10 to-[#FFB84D]/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#F57B51]/10 to-[#FFB84D]/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+
+                <div className="relative p-6 md:p-8">
+                  {/* Category Header */}
+                  <div className="flex items-center mb-6 pb-4 border-b-2 border-[#F57B51]/20">
+                    <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-[#F57B51] to-[#FFB84D] text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      {section.icon}
+                    </div>
+                    <div className="ml-4">
+                      <h3 className="text-xl md:text-2xl font-bold text-gray-800">
+                        {section.title}
+                      </h3>
+                      <span className="text-sm text-gray-500">
+                        {section.items.length} items
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Items List */}
+                  <div className="space-y-2">
+                    {section.items.map((itemName, itemIndex) => (
+                      <div
+                        key={itemIndex}
+                        className="group/item flex items-center py-3 px-4 rounded-xl bg-white/60 hover:bg-white hover:shadow-md transition-all duration-300 cursor-default"
+                        data-testid={`full-menu-item-${itemName
+                          .toLowerCase()
+                          .replace(/\s+/g, "-")
+                          .replace(/[()\/&']/g, "")}`}
+                      >
+                        <span className="flex-shrink-0 w-2 h-2 rounded-full bg-gradient-to-r from-[#F57B51] to-[#FFB84D] mr-3 group-hover/item:scale-150 transition-transform duration-300"></span>
+                        <span className="text-gray-700 font-medium text-sm md:text-base group-hover/item:text-[#F57B51] transition-colors duration-300">
+                          {itemName}
+                        </span>
+                        {itemName.includes("BEST SELLER") && (
+                          <span className="ml-auto flex-shrink-0 bg-gradient-to-r from-[#F57B51] to-[#FFB84D] text-white text-xs font-bold px-2 py-1 rounded-full">
+                            ★ POPULAR
+                          </span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Footer CTA */}
