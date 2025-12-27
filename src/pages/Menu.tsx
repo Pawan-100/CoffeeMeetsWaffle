@@ -1,40 +1,41 @@
 import React, { useState, useEffect } from "react";
-import { GiNachos } from "react-icons/gi";
-import { IoFastFoodOutline, IoClose } from "react-icons/io5";
-import { BiDrink } from "react-icons/bi";
-import { MdOutlineBreakfastDining } from "react-icons/md";
-import { PiCookieBold } from "react-icons/pi";
+import { IoClose } from "react-icons/io5";
+// import { IoFastFoodOutline } from "react-icons/io5";
+// import { BiDrink } from "react-icons/bi";
+// import { MdOutlineBreakfastDining } from "react-icons/md";
+// import { PiCookieBold } from "react-icons/pi";
+import { MdStars } from "react-icons/md";
 
 // Import all menu images
-import img1 from "../assets/menu/1.jpeg";
-import img2 from "../assets/menu/2.jpeg";
-import img3 from "../assets/menu/3.jpeg";
-// import img4 from "../assets/menu/4.jpeg";
-import img5 from "../assets/menu/5.jpeg";
-import img6 from "../assets/menu/6.jpeg";
+// import img1 from "../assets/menu/1.jpeg";
+// import img2 from "../assets/menu/2.jpeg";
+// import img3 from "../assets/menu/3.jpeg";
+import img4 from "../assets/menu/4.jpeg";
+// import img5 from "../assets/menu/5.jpeg";
+// import img6 from "../assets/menu/6.jpeg";
 import img7 from "../assets/menu/7.jpeg";
 import img8 from "../assets/menu/8.jpeg";
-import img9 from "../assets/menu/9.jpeg";
-import img10 from "../assets/menu/10.jpeg";
+// import img9 from "../assets/menu/9.jpeg";
+// import img10 from "../assets/menu/10.jpeg";
 // import img11 from "../assets/menu/11.jpeg";
-import img12 from "../assets/menu/12.jpeg";
+// import img12 from "../assets/menu/12.jpeg";
 import img13 from "../assets/menu/13.jpeg";
-import img14 from "../assets/menu/14.jpeg";
-import img15 from "../assets/menu/15.jpeg";
-import img16 from "../assets/menu/16.jpeg";
+// import img14 from "../assets/menu/14.jpeg";
+// import img15 from "../assets/menu/15.jpeg";
+// import img16 from "../assets/menu/16.jpeg";
 // import img17 from "../assets/menu/17.jpeg";
 // import img18 from "../assets/menu/18.jpeg";
 // import img19 from "../assets/menu/19.jpeg";
 // import img20 from "../assets/menu/20.jpeg";
 // import img21 from "../assets/menu/21.jpeg";
 // import img22 from "../assets/menu/22.jpeg";
-// import img23 from "../assets/menu/23.jpeg";
+import img23 from "../assets/menu/23.jpeg";
 // import img24 from "../assets/menu/24.jpeg";
 import img25 from "../assets/menu/25.jpeg";
-import img26 from "../assets/menu/26.jpeg";
+// import img26 from "../assets/menu/26.jpeg";
 // import img27 from "../assets/menu/27.jpeg";
 // import img28 from "../assets/menu/28.jpeg";
-import img29 from "../assets/menu/29.jpeg";
+// import img29 from "../assets/menu/29.jpeg";
 // import img30 from "../assets/menu/30.jpeg";
 // import img31 from "../assets/menu/31.jpeg";
 // import img32 from "../assets/menu/32.jpeg";
@@ -44,9 +45,9 @@ import img34 from "../assets/menu/34.jpeg";
 // import img36 from "../assets/menu/36.jpeg";
 import img37 from "../assets/menu/37.jpeg";
 // import img38 from "../assets/menu/38.jpeg";
-import img39 from "../assets/menu/39.jpeg";
-import img40 from "../assets/menu/40.jpeg";
-import img41 from "../assets/menu/41.jpeg";
+// import img39 from "../assets/menu/39.jpeg";
+// import img40 from "../assets/menu/40.jpeg";
+// import img41 from "../assets/menu/41.jpeg";
 
 interface MenuItem {
   name: string;
@@ -82,62 +83,68 @@ const Menu: React.FC = () => {
 
   const menuData: MenuSection[] = [
     {
-      title: "Nachos",
-      icon: <GiNachos className="text-4xl md:text-5xl" />,
+      title: "Best Seller",
+      icon: <MdStars className="text-4xl md:text-5xl" />,
       bgColor: "bg-orange-50",
       items: [
-        { name: "Nachos", image: img40 },
-        { name: "Cheesy Nachos", image: img41 },
-      ],
-    },
-    {
-      title: "Sandwiches & Pasta",
-      icon: <IoFastFoodOutline className="text-4xl md:text-5xl" />,
-      bgColor: "bg-yellow-50",
-      items: [
-        { name: "Veg Grilled Sandwich and Cappuccino", image: img39 },
-        { name: "White Sauce Pasta", image: img37 },
-        { name: "Veg Cheese Sandwich", image: img34 },
-      ],
-    },
-    {
-      title: "Shakes",
-      icon: <BiDrink className="text-4xl md:text-5xl" />,
-      bgColor: "bg-pink-50",
-      items: [
-        { name: "Strawberry Shake", image: img1 },
-        { name: "Mango Shake", image: img3 },
-        { name: "Kitkat Shake", image: img7 },
-        { name: "Blueberry Shake", image: img5 },
-        { name: "Pineapple Shake", image: img6 },
-      ],
-    },
-    {
-      title: "Classic Waffles",
-      icon: <MdOutlineBreakfastDining className="text-4xl md:text-5xl" />,
-      bgColor: "bg-amber-50",
-      items: [
-        { name: "Honey Classic Waffle", image: img2 },
+        { name: "Hazzlenut Frappuccino", image: img4 },
         { name: "Kitkat Classic Waffle", image: img8 },
-        { name: "White Chocolate Classic Waffle", image: img10 },
-        { name: "Red Velvet Classic Waffle", image: img25 },
-        { name: "Milk Chocolate Classic Waffle", image: img26 },
-        { name: "Oreo Classic Waffle", image: img29 },
-      ],
-    },
-    {
-      title: "Lolly Waffles",
-      icon: <PiCookieBold className="text-4xl md:text-5xl" />,
-      bgColor: "bg-purple-50",
-      items: [
-        { name: "Honey Lolly Waffle", image: img9 },
-        { name: "Kitkat Lolly Waffle", image: img15 },
-        { name: "Red Velvet Lolly Waffle", image: img14 },
-        { name: "Milk Chocolate Lolly Waffle", image: img12 },
+        { name: "Classic Veg Sandwich", image: img34 },
         { name: "White Chocolate Lolly Waffle", image: img13 },
-        { name: "Dark Chocolate Lolly Waffle", image: img16 },
+        { name: "Kitkat Shake", image: img7 },
+        { name: "Belgian Waffle", image: img23 },
+        { name: "White Sauce Pasta", image: img37 },
+        { name: "Red Velvet Classic Waffle", image: img25 },
       ],
     },
+    // {
+    //   title: "Sandwiches & Pasta",
+    //   icon: <IoFastFoodOutline className="text-4xl md:text-5xl" />,
+    //   bgColor: "bg-yellow-50",
+    //   items: [
+    //     { name: "Veg Grilled Sandwich and Cappuccino", image: img39 },
+    //     { name: "White Sauce Pasta", image: img37 },
+    //     { name: "Veg Cheese Sandwich", image: img34 },
+    //   ],
+    // },
+    // {
+    //   title: "Shakes",
+    //   icon: <BiDrink className="text-4xl md:text-5xl" />,
+    //   bgColor: "bg-pink-50",
+    //   items: [
+    //     { name: "Strawberry Shake", image: img1 },
+    //     { name: "Mango Shake", image: img3 },
+    //     { name: "Kitkat Shake", image: img7 },
+    //     { name: "Blueberry Shake", image: img5 },
+    //     { name: "Pineapple Shake", image: img6 },
+    //   ],
+    // },
+    // {
+    //   title: "Classic Waffles",
+    //   icon: <MdOutlineBreakfastDining className="text-4xl md:text-5xl" />,
+    //   bgColor: "bg-amber-50",
+    //   items: [
+    //     { name: "Honey Classic Waffle", image: img2 },
+    //     { name: "Kitkat Classic Waffle", image: img8 },
+    //     { name: "White Chocolate Classic Waffle", image: img10 },
+    //     { name: "Red Velvet Classic Waffle", image: img25 },
+    //     { name: "Milk Chocolate Classic Waffle", image: img26 },
+    //     { name: "Oreo Classic Waffle", image: img29 },
+    //   ],
+    // },
+    // {
+    //   title: "Lolly Waffles",
+    //   icon: <PiCookieBold className="text-4xl md:text-5xl" />,
+    //   bgColor: "bg-purple-50",
+    //   items: [
+    //     { name: "Honey Lolly Waffle", image: img9 },
+    //     { name: "Kitkat Lolly Waffle", image: img15 },
+    //     { name: "Red Velvet Lolly Waffle", image: img14 },
+    //     { name: "Milk Chocolate Lolly Waffle", image: img12 },
+    //     { name: "White Chocolate Lolly Waffle", image: img13 },
+    //     { name: "Dark Chocolate Lolly Waffle", image: img16 },
+    //   ],
+    // },
   ];
 
   return (
@@ -192,7 +199,7 @@ const Menu: React.FC = () => {
                   }
                 >
                   {/* Image Container */}
-                  <div className="relative overflow-hidden h-64">
+                  <div className="relative overflow-hidden h-94">
                     <img
                       src={item.image}
                       alt={item.name}

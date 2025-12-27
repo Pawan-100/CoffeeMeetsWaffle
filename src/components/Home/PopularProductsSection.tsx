@@ -1,11 +1,17 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import classicWaffleImg from "../../assets/menu/2.jpeg";
-import lollyWaffleImg from "../../assets/menu/9.jpeg";
-import sandwichImg from "../../assets/menu/34.jpeg";
-import milkshakeImg from "../../assets/menu/1.jpeg";
+import classicWaffleImg from "../../assets/menu/42.jpeg";
+import lollyWaffleImg from "../../assets/menu/43.jpeg";
+import sandwichImg from "../../assets/menu/32.jpeg";
+import milkshakeImg from "../../assets/menu/5.jpeg";
 import coffeeImg from "../../assets/menu/33.jpeg";
-import nachosImg from "../../assets/menu/40.jpeg";
+import frapuccinoImg from "../../assets/menu/4.jpeg";
+import pastaImg from "../../assets/menu/38.jpeg";
+import nachosImg from "../../assets/menu/41.jpeg";
+import bubbleWaffleImg from "../../assets/menu/44.jpeg";
+import fruitBasedWaffleImg from "../../assets/menu/45.jpg";
+import onTheRocksImg from "../../assets/menu/46.jpg";
+import iceCreamImg from "../../assets/menu/47.jpg";
 
 interface Category {
   title: string;
@@ -15,14 +21,19 @@ interface Category {
 
 const categories: Category[] = [
   {
-    title: "Classic Waffles",
-    desc: "Golden, crispy multigrain waffles — including Nutella, fruit-based & bubble waffles.",
-    img: classicWaffleImg,
-  },
-  {
-    title: "Coffee & Tea",
+    title: "Hot Beverages",
     desc: "Premium freshly brewed coffee & authentic tea, specially crafted for Indian palates.",
     img: coffeeImg,
+  },
+  {
+    title: "Frapuccino",
+    desc: "Perfectly blended for a cool, smooth escape",
+    img: frapuccinoImg,
+  },
+  {
+    title: "Ice Cream Milkshakes",
+    desc: "Creamy ice cream and thick frappuccino milkshakes in various flavors.",
+    img: milkshakeImg,
   },
   {
     title: "Lolly Waffles",
@@ -30,19 +41,44 @@ const categories: Category[] = [
     img: lollyWaffleImg,
   },
   {
+    title: "Classic Waffles",
+    desc: "Golden, crispy multigrain waffles — including Nutella, fruit-based & bubble waffles.",
+    img: classicWaffleImg,
+  },
+  {
+    title: "Bubble Waffles",
+    desc: "Bubble waffles are a fun and unique way to enjoy a waffle.",
+    img: bubbleWaffleImg,
+  },
+  {
+    title: "Fruit-based Waffles",
+    desc: "Fruit-based waffles are a fun and unique way to enjoy a waffle.",
+    img: fruitBasedWaffleImg,
+  },
+  {
     title: "Sandwiches & Breads",
     desc: "Freshly grilled sandwiches with premium fillings and quality breads.",
     img: sandwichImg,
   },
   {
-    title: "Ice Cream & Milkshakes",
-    desc: "Creamy ice cream and thick frappuccino milkshakes in various flavors.",
-    img: milkshakeImg,
-  },
-  {
     title: "Pasta & Nachos",
     desc: "Delicious pasta dishes and crispy nachos loaded with cheese and toppings.",
+    img: pastaImg,
+  },
+  {
+    title: "On The Rocks",
+    desc: "Delicious pasta dishes and crispy nachos loaded with cheese and toppings.",
+    img: onTheRocksImg,
+  },
+  {
+    title: "Nachos",
+    desc: "Delicious pasta dishes and crispy nachos loaded with cheese and toppings.",
     img: nachosImg,
+  },
+  {
+    title: "Ice Cream",
+    desc: "Delicious pasta dishes and crispy nachos loaded with cheese and toppings.",
+    img: iceCreamImg,
   },
 ];
 
@@ -107,7 +143,7 @@ const PopularProductsSection = () => {
                 }}
               >
                 {/* Image Container with Parallax */}
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-94 overflow-hidden">
                   <div
                     className="absolute inset-0 transition-transform duration-700 ease-out"
                     style={{
@@ -145,20 +181,20 @@ const PopularProductsSection = () => {
                   style={{ transform: "translateZ(30px)" }}
                 >
                   <h3
-                    className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors duration-300"
+                    className="text-2xl text-center font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors duration-300"
                     data-testid={`category-title-${index}`}
                   >
                     {category.title}
                   </h3>
-                  <p
+                  {/* <p
                     className="text-gray-600 leading-relaxed"
                     data-testid={`category-desc-${index}`}
                   >
                     {category.desc}
-                  </p>
+                  </p> */}
 
                   {/* Decorative Line */}
-                  <div className="mt-4 h-1 w-0 group-hover:w-16 bg-gradient-to-r from-orange-500 to-amber-500 transition-all duration-500 rounded-full"></div>
+                  {/* <div className="mt-4 h-1 w-0 group-hover:w-16 bg-gradient-to-r from-orange-500 to-amber-500 transition-all duration-500 rounded-full"></div> */}
                 </div>
 
                 {/* Border Glow Effect */}

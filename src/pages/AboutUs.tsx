@@ -109,13 +109,23 @@ const TrophyIcon = () => (
 const awards = [
   {
     title: "Women Icon Award",
-    organization: "",
+    organization: "The Crazy Tales Delhi",
     year: "2024",
   },
   {
     title: "Samidnya Hirkani Rajyastarya Puraskar",
     organization: "",
     year: "2024",
+  },
+  {
+    title: "Lokmat Times Award",
+    organization: "",
+    year: "2025",
+  },
+  {
+    title: "Adishakti Puraskar",
+    organization: "",
+    year: "2025",
   },
 ];
 
@@ -263,10 +273,9 @@ const AboutUs: React.FC = () => {
                 </strong>{" "}
                 established in{" "}
                 <strong className="text-primary">November 2022</strong> in
-                Nashik. Our Chef Prabjyot Singh, with more than{" "}
-                <strong>25 years of experience</strong> in the hotel industry,
-                is relentlessly working to provide a delightful coffee
-                experience.
+                Nashik. Our Chef Om Kanojiya, with more than{" "}
+                <strong>5 years of experience</strong> in the QSR industry, is
+                relentlessly working to provide a delightful coffee experience.
               </p>
               <p data-testid="brand-story-text-2">
                 We currently serve at{" "}
@@ -359,24 +368,32 @@ const AboutUs: React.FC = () => {
 
               <div className="space-y-5 text-lg text-gray-700 leading-relaxed">
                 <p data-testid="founder-story-text-1">
-                  Sampadaa Kulkarni, a resilient and accomplished women
-                  entrepreneur who has triumphed over societal challenges. As a
-                  single mother, she manages a successful chain of cafes
-                  spanning across India,offering a unique blend of multigrain
-                  waffles and authentic coffee.She was a former French
-                  professor, having spent 19 years in the educational field and
-                  earning recognition as the recipient of the Best Professor
-                  Award, by Ashoka Group of Education.
+                  Sampadaa Kulkarni is a resilient and accomplished entrepreneur
+                  who has triumphed over significant societal challenges. As a
+                  single mother, she successfully manages a nationwide chain of
+                  cafes offering a unique blend of multigrain waffles and
+                  authentic coffee. With a distinguished background as a French
+                  professor for 19 years, she was honored with the Best
+                  Professor Award by the Ashoka Group of Education.
                 </p>
                 <p data-testid="founder-story-text-2">
-                  Her recognition as{" "}
+                  Her outstanding contributions to entrepreneurship and society
+                  have been recognized with prestigious accolades, including{" "}
                   <strong className="text-gray-900">Women Icon 2024</strong> by
-                  The Crazy Tales and{" "}
+                  The Crazy Tales Delhi,{" "}
                   <strong className="text-gray-900">
                     Samidnya Hirkani Rajyastarya Puraskar 2024
-                  </strong>{" "}
-                  is well-deserved. These awards highlight her contributions to
-                  entrepreneurship and society.
+                  </strong>
+                  ,{" "}
+                  <strong className="text-gray-900">
+                    Lokmat Times Award 2025
+                  </strong>
+                  , and{" "}
+                  <strong className="text-gray-900">
+                    Adishakti Puraskar 2025
+                  </strong>
+                  . These awards stand as a testament to her dedication and
+                  impact.
                 </p>
               </div>
 

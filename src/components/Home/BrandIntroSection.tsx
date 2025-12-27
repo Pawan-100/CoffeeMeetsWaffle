@@ -62,13 +62,12 @@ const BrandIntroSection = () => {
           >
             Coffee Meets Waffle is a premium specialty Nashik's coffee company
             established in{" "}
-            <strong className="text-primary">November 2022</strong>. Our Chef
-            Prabjyot Singh, with more than{" "}
-            <strong>25 years of experience</strong> in the hotel industry, is
-            relentlessly working to provide a delightful coffee experience.
-            Currently serving at 17+ locations across India, we've pioneered and
-            introduced best-in-class coffee along with varieties of delicious
-            waffles.{" "}
+            <strong className="text-primary">November 2022</strong>. Our Chef Om
+            Kanojiya, with more than <strong>5 years of experience</strong> in
+            the hotel industry, is relentlessly working to provide a delightful
+            coffee experience. Currently serving at 17+ locations across India,
+            we've pioneered and introduced best-in-class coffee along with
+            varieties of delicious waffles.{" "}
             <Link
               to="/franchise"
               className="text-primary hover:underline font-semibold"
