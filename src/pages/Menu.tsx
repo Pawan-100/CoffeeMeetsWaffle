@@ -1,12 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { IoClose } from "react-icons/io5";
 import { IoFastFoodOutline } from "react-icons/io5";
-import { BiDrink, BiCoffee } from "react-icons/bi";
-import { MdOutlineBreakfastDining, MdIcecream } from "react-icons/md";
-import { PiCookieBold } from "react-icons/pi";
-import { GiNoodles, GiNachos } from "react-icons/gi";
+import {
+  MdOutlineBreakfastDining,
+  MdIcecream,
+  MdLocalCafe,
+} from "react-icons/md";
+import {
+  GiNoodles,
+  GiNachos,
+  GiIcePop,
+  GiFruitBowl,
+  GiMilkCarton,
+  GiIceCubes,
+} from "react-icons/gi";
 import { FaMugHot } from "react-icons/fa";
 import { MdStars } from "react-icons/md";
+import { TbIceCream2 } from "react-icons/tb";
+import { LuCupSoda } from "react-icons/lu";
 
 // Import all menu images
 // import img1 from "../assets/menu/1.jpeg";
@@ -76,7 +87,7 @@ interface FullMenuSection {
 const fullMenuData: FullMenuSection[] = [
   {
     title: "Hot Beverages",
-    icon: <BiCoffee className="text-3xl md:text-4xl" />,
+    icon: <MdLocalCafe className="text-3xl md:text-4xl" />,
     bgColor: "bg-amber-50",
     items: [
       "ESPRESSO SOLO (30ML)",
@@ -105,7 +116,7 @@ const fullMenuData: FullMenuSection[] = [
   },
   {
     title: "Lolly Waffle",
-    icon: <PiCookieBold className="text-3xl md:text-4xl" />,
+    icon: <GiIcePop className="text-3xl md:text-4xl" />,
     bgColor: "bg-yellow-50",
     items: [
       "HONEY LOLLY WAFFLE",
@@ -121,7 +132,7 @@ const fullMenuData: FullMenuSection[] = [
   },
   {
     title: "On The Rocks",
-    icon: <MdIcecream className="text-3xl md:text-4xl" />,
+    icon: <GiIceCubes className="text-3xl md:text-4xl" />,
     bgColor: "bg-purple-50",
     items: [
       "LEMON ICE TEA",
@@ -158,7 +169,7 @@ const fullMenuData: FullMenuSection[] = [
   },
   {
     title: "Fruit Base Classic Waffle",
-    icon: <PiCookieBold className="text-3xl md:text-4xl" />,
+    icon: <GiFruitBowl className="text-3xl md:text-4xl" />,
     bgColor: "bg-red-50",
     items: [
       "STRAWBERRY WAFFLE",
@@ -187,7 +198,7 @@ const fullMenuData: FullMenuSection[] = [
   },
   {
     title: "Frappuccino (Cold Coffee)",
-    icon: <BiDrink className="text-3xl md:text-4xl" />,
+    icon: <LuCupSoda className="text-3xl md:text-4xl" />,
     bgColor: "bg-brown-50",
     items: [
       "COFFEE FRAPPE",
@@ -203,7 +214,7 @@ const fullMenuData: FullMenuSection[] = [
   },
   {
     title: "Ice Cream Milk Shake / Smoothies",
-    icon: <BiDrink className="text-3xl md:text-4xl" />,
+    icon: <GiMilkCarton className="text-3xl md:text-4xl" />,
     bgColor: "bg-pink-50",
     items: [
       "STRAWBERRY SMOOTHIE",
@@ -220,7 +231,7 @@ const fullMenuData: FullMenuSection[] = [
   },
   {
     title: "Ice Cream Bubble Waffle",
-    icon: <MdIcecream className="text-3xl md:text-4xl" />,
+    icon: <TbIceCream2 className="text-3xl md:text-4xl" />,
     bgColor: "bg-cyan-50",
     items: [
       "MOCHA BROWNIE WAFFLE",
