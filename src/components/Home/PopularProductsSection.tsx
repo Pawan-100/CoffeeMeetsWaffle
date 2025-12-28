@@ -5,7 +5,7 @@ import lollyWaffleImg from "../../assets/menu/43.jpeg";
 import sandwichImg from "../../assets/menu/32.jpeg";
 import milkshakeImg from "../../assets/menu/5.jpeg";
 import coffeeImg from "../../assets/menu/33.jpeg";
-import frapuccinoImg from "../../assets/menu/4.jpeg";
+import frappuccinoImg from "../../assets/menu/4.jpeg";
 import pastaImg from "../../assets/menu/38.jpeg";
 import nachosImg from "../../assets/menu/41.jpeg";
 import bubbleWaffleImg from "../../assets/menu/44.jpeg";
@@ -26,9 +26,9 @@ const categories: Category[] = [
     img: coffeeImg,
   },
   {
-    title: "Frapuccino",
+    title: "Frappuccino",
     desc: "Perfectly blended for a cool, smooth escape",
-    img: frapuccinoImg,
+    img: frappuccinoImg,
   },
   {
     title: "Ice Cream Milkshakes",
@@ -111,7 +111,7 @@ const PopularProductsSection = () => {
             className="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto px-4"
             data-testid="popular-products-subtext"
           >
-            From signature waffles to delicious coffees and milkshakes, explore
+            From signature waffles to delicious coffee and milkshakes, explore
             our diverse menu crafted with love — winning hearts across every
             city we serve.
           </p>

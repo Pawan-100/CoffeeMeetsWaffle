@@ -127,6 +127,11 @@ const awards = [
     organization: "",
     year: "2025",
   },
+  {
+    title: "Special Appreciation",
+    organization: "Ashoka Universal School, Sandip Foundation",
+    year: "",
+  },
 ];
 
 // Values Data

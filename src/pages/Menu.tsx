@@ -302,7 +302,7 @@ const Menu: React.FC = () => {
       icon: <MdStars className="text-4xl md:text-5xl" />,
       bgColor: "bg-orange-50",
       items: [
-        { name: "Hazzlenut Frappuccino", image: img4 },
+        { name: "Hazelnut Frappuccino", image: img4 },
         { name: "Kitkat Classic Waffle", image: img8 },
         { name: "Classic Veg Sandwich", image: img34 },
         { name: "White Chocolate Lolly Waffle", image: img13 },
