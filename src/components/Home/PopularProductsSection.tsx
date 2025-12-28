@@ -9,7 +9,7 @@ import frappuccinoImg from "../../assets/menu/4.jpeg";
 import pastaImg from "../../assets/menu/38.jpeg";
 import nachosImg from "../../assets/menu/41.jpeg";
 import bubbleWaffleImg from "../../assets/menu/44.jpeg";
-import fruitBasedWaffleImg from "../../assets/menu/45.jpg";
+import fruitBasedWaffleImg from "../../assets/menu/49.jpeg";
 import onTheRocksImg from "../../assets/menu/46.jpg";
 import iceCreamImg from "../../assets/menu/47.jpg";
 

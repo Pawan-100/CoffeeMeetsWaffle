@@ -130,7 +130,7 @@ const awards = [
   {
     title: "Special Appreciation",
     organization: "Ashoka Universal School, Sandip Foundation",
-    year: "",
+    year: "2025",
   },
 ];
 

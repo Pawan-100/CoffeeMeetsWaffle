@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import blackLogo from "/black_logo.png";
 
 const Footer = () => {
@@ -31,36 +32,36 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3">
               <li>
-                <a
-                  href="#home"
+                <Link
+                  to="/"
                   className="text-gray-400 hover:text-primary transition-colors"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#about"
+                <Link
+                  to="/about"
                   className="text-gray-400 hover:text-primary transition-colors"
                 >
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#menu"
+                <Link
+                  to="/menu"
                   className="text-gray-400 hover:text-primary transition-colors"
                 >
                   Menu
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#franchise"
+                <Link
+                  to="/franchise"
                   className="text-gray-400 hover:text-primary transition-colors"
                 >
                   Franchise Opportunities
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

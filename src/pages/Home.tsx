@@ -4,12 +4,18 @@ import DistinguishedGuestsSection from "../components/Home/DistinguishedGuestsSe
 import IndiaPresenceSection from "../components/Home/IndiaPresenceSection";
 import PopularProductsSection from "../components/Home/PopularProductsSection";
 import WomenEmpowermentSection from "../components/Home/WomenEmpowermentSection";
+import { useEffect } from "react";
 
 interface HomeProps {
   onNavigate: (sectionId: string) => void;
 }
 
 const Home = ({ onNavigate }: HomeProps) => {
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <HeroSection onNavigate={onNavigate} />
