@@ -61,7 +61,7 @@ const categories: Category[] = [
     img: sandwichImg,
   },
   {
-    title: "Pasta & Nachos",
+    title: "Pasta",
     desc: "Delicious pasta dishes and crispy nachos loaded with cheese and toppings.",
     img: pastaImg,
   },

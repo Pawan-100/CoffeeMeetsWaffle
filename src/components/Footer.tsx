@@ -114,7 +114,11 @@ const Footer = () => {
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   />
                 </svg>
-                <span>+91 9922365367</span>
+                <div className="flex items-center space-x-1">
+                  <span>+91 9922365367</span>
+                  <span> / </span>
+                  <span>+91 7030568118</span>
+                </div>
               </li>
               <li className="flex items-center space-x-3">
                 <svg
@@ -143,7 +147,7 @@ const Footer = () => {
             <ul className="space-y-2 text-gray-400 mb-8">
               <li className="flex justify-between">
                 <span className="text-white font-semibold">
-                  11:00 AM - 11:00 PM
+                  11:00 AM - 10:00 PM
                 </span>
               </li>
             </ul>
